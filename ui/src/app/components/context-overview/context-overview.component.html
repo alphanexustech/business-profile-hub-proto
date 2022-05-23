@@ -1,0 +1,20 @@
+<div class="table--nav_buttons">
+  <button mat-raised-button color="primary" [routerLink]="['/home']">Home</button>
+</div>
+
+<div class="context">
+  <ul class="context--elements">
+    <li *ngIf="!elements">
+      There are no elements
+    </li>
+    <li *ngFor="let element of elements"
+      [class.selected]="element === selectedElement"
+      (click)="onSelect(element)">
+      {{element.name}}
+    </li>
+  </ul>
+
+  <div>
+    <app-context-focus [element]='selectedElement'></app-context-focus>
+  </div>
+</div>

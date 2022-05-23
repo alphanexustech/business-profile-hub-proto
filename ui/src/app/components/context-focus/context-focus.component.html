@@ -1,0 +1,17 @@
+<div *ngIf="!element">
+  Choose element to get started
+</div>
+
+<div *ngIf="element">
+  <h2>{{element.name | uppercase}} Details</h2>
+  <div><span>position: </span>{{element.position}}</div>
+  <div><span>symbol: </span>{{element.symbol}}</div>
+  <div><span>weight: </span>{{element.weight}}</div>
+  <div>
+    <label>
+      element:
+    </label>
+    <span>{{element.name}}</span>
+  </div>
+
+</div>

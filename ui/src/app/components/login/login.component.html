@@ -1,0 +1,17 @@
+<div class="wrapper">
+  <div class="heading">
+    <span>Log In</span>
+  </div>
+  <form *ngIf="loginForm" class="login-form" [formGroup]="loginForm" autocomplete="true" (submit)="login()">
+    <div class="row">
+      <input formControlName="email" placeholder="Email">
+    </div>
+    <div class="row">
+      <input type="password" formControlName="password" placeholder="Password">
+    </div>
+    <div class="row">
+      <button type="submit" mat-raised-button color="primary" [disabled]="!loginForm.valid" color="primary">Login</button>
+    </div>
+  </form>
+  <span [routerLink]="['/password-reset']">Forgot Username or Password?</span>
+</div>

@@ -1,0 +1,30 @@
+.details--default_card {
+  width: 400px;
+  margin: 8px;
+}
+
+.details--card_item {
+  margin-left: 48px;
+  margin-right: 48px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.details--card_item label {
+  color: #222;
+  font-weight: 900;
+  width: 50%;
+}
+
+.details--card_item span {
+  width: 50%;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.wrap {
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,17 @@
+table {
+  width: 100%;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+.table--nav_buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mat-success {
+    background-color: green;
+    color: #fff;
+}

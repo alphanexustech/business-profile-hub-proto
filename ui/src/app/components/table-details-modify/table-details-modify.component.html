@@ -1,0 +1,30 @@
+<form [formGroup]="detailsForm" (ngSubmit)="saveData(detailsForm)">
+
+  <div class="table--nav_buttons">
+    <button mat-raised-button color="primary" [routerLink]="['/overview']">Back</button>
+    <button type="submit" mat-raised-button color="success">Save</button>
+  </div>
+
+  <div class="container">
+    <mat-form-field>
+      <input matInput placeholder="Element" formControlName="element" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Position" formControlName="position" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="Description" formControlName="description" required></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Rank" formControlName="rank" required>
+        <mat-option value="a">A</mat-option>
+        <mat-option value="b">B</mat-option>
+        <mat-option value="c">C</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+</form>
