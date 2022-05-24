@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Us Component</title>
+</head>
+<style>
+
+.container {
+  height: 275px;
+  width: 300px;
+  position: relative;
+  border: 3px solid black;
+  margin: auto;
+  justify-content: center;
+}
+
+.input {
+  font-size: 15px;
+  margin-top: 5px;
+  font-family: Garamond, serif;
+  text-align: center;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.font {
+  text-align: center;
+  font-family: Garamond, serif;
+}
+
+.button {
+  font-size: 15px;
+  margin-top: 20px;
+  font-family: Garamond, serif;
+  text-align: center;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+}
+
+</style>
+
+<body style="background-color:white;">
+  <div class="container">
+    <div>
+      <form onsubmit="sendEmail(); reset(); return false;">
+        <h3 class="font">Contact Us!</h3>
+        <input class="input" type="text" id="name" placeholder="Name" required>
+        <input class="input" type="text" id="phone" placeholder="Phone Number" required>
+        <input class="input" type="email" id="email" placeholder="E-Mail" required>
+        <textarea class="input" id="message" placeholder="How Can We Help?" rows="4" required></textarea>
+        <button class="button" type="submit">Send!</button>
+      </form>
+    </div>
+  </div>
+<script>
+  function sendEmail(){
+       window.open('mailto:test@example.com?subject=subject&body=body');
+  }  
+</script>
+</html>
