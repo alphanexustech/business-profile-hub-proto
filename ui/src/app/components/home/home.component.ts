@@ -63,13 +63,14 @@ export class HomeComponent implements OnInit {
 
     this.dashboard = [
       {cols: 2, rows: 1, y: 0, x: 0, isNavigation: 'Table Overview', path: "/overview"},
-      {cols: 2, rows: 1, y: 4, x: 0, isNavigation: 'Context Overview', path: "/context"},
-      {cols: 2, rows: 4, y: 1, x: 5, isViz: true},
-      {cols: 3, rows: 3, y: 2, x: 2, isTable: true, tableData: null},
-      {cols: 2, rows: 2, y: 0, x: 2, hasContent: true},
-      {cols: 2, rows: 2, y: 2, x: 0, maxItemRows: 2, maxItemCols: 2, label: "Max rows & cols = 2"},
-      {cols: 2, rows: 1, y: 0, x: 4, dragEnabled: true, resizeEnabled: true, label: "Drag&Resize Enabled"},
-      {cols: 1, rows: 1, y: 0, x: 6, dragEnabled: false, resizeEnabled: false, label: "Drag&Resize Disabled"},
+      {cols: 2, rows: 2, y: 0, x: 0, componentName: 'Logo Square'},
+      // {cols: 2, rows: 1, y: 4, x: 0, isNavigation: 'Context Overview', path: "/context"},
+      // {cols: 2, rows: 4, y: 1, x: 5, isViz: true},
+      // {cols: 3, rows: 3, y: 2, x: 2, isTable: true, tableData: null},
+      // {cols: 2, rows: 2, y: 0, x: 2, hasContent: true},
+      // {cols: 2, rows: 2, y: 2, x: 0, maxItemRows: 2, maxItemCols: 2, label: "Max rows & cols = 2"},
+      // {cols: 2, rows: 1, y: 0, x: 4, dragEnabled: true, resizeEnabled: true, label: "Drag&Resize Enabled"},
+      // {cols: 1, rows: 1, y: 0, x: 6, dragEnabled: false, resizeEnabled: false, label: "Drag&Resize Disabled"},
     ];
   }
 
