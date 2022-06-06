@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Menu Component</title>
+</head>
+<style>
+
+.container {
+    height: 350px;
+    width: 300px;
+    position: relative;
+    border: 3px solid black;
+    background-color: white;
+    margin: auto;
+  }
+
+  img{
+    display: flex;
+    width: 125px;
+    height: 110px;
+    border: 1px;
+    border-style: solid;
+    border-color: black;
+  }
+
+  .rows {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 3px;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1px;
+    border-bottom: 1px solid black;
+  }
+
+  .row:first-child {
+    border-top: 1px solid black;
+  }
+
+  .row_text {
+    text-align: center;
+    width: 60%;
+  }
+
+  .row_img {
+    width: 40%;
+  }
+
+div{font-family: Garamond, serif;}
+
+</style>
+
+<div class="container">
+  <div class= "rows">
+    <div class="row">
+        <img class="row_img" src="Menu Component Image1.png" />
+        <div class="row_text">
+          Mmm! Tasty Macarons!?
+        </div>
+      </div>
+      <div class="row">
+          <img class="row_img" src="Menu Component Image2.png" />
+          <div class="row_text">
+            Wow! Tarts! Shit!
+          </div>
+      </div>
+      <div class="row">
+          <img class="row_img" src="Menu Component Image3.png" />
+            <div class="row_text">
+              Cookies or somethin'.
+          </div>
+        </div>
+  </div>
+</div>
+
+
+</html>
