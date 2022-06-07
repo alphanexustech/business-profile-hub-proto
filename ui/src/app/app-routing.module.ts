@@ -8,6 +8,7 @@ import { TableOverviewComponent } from './components/table-overview/table-overvi
 import { TableDetailsComponent } from './components/table-details/table-details.component';
 import { TableDetailsModifyComponent } from './components/table-details-modify/table-details-modify.component';
 import { ContextOverviewComponent } from './components/context-overview/context-overview.component';
+import { OutputLandingComponent } from './components/output-landing/output-landing.component';
 
 const routes: Routes = [
   {
@@ -58,12 +59,20 @@ const routes: Routes = [
     }
   },
   {
+    path: 'output-landing',
+    canActivate: [AuthGuard],
+    component: OutputLandingComponent,
+    data: {
+      header: 'Let\'s Finish!'
+    }
+  },
+  {
     path: '**',
     component: LoginComponent,
     data: {
       header: 'Login'
     }
-  }
+  },
 ];
 
 @NgModule({

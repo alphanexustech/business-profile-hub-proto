@@ -1,10 +1,13 @@
 <div class="mat-app-background basic-container"
      style="height: 100vh;">
   <h1>Angular 12 Boilerplate</h1>
+  <h3>https://material.angular.io/components/sidenav/overview (SideNav)</h3>
   <ul class="menu">
-    <li><button mat-button color="primary" [routerLink]="['/login']">Login</button></li>
+    <li><button mat-button color="primary" [routerLink]="['/login']">0. Login</button></li>
     <!-- <li><button [routerLink]="['/logout']">Logout</button></li> -->
-    <li><button mat-button color="primary" [routerLink]="['/home']">Home</button></li>
+    <li><button mat-button color="primary" [routerLink]="['/input']">1. Input Data</button></li>
+    <li><button mat-button color="primary" [routerLink]="['/home']">2. Home</button></li>
+    <li><button mat-button color="primary" [routerLink]="['/output-landing']">3. Finish</button></li>
   </ul>
   <div style="margin: 5% 0%;">
     <router-outlet></router-outlet>

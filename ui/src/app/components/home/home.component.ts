@@ -62,8 +62,9 @@ export class HomeComponent implements OnInit {
     };
 
     this.dashboard = [
-      {cols: 2, rows: 1, y: 0, x: 0, isNavigation: 'Table Overview', path: "/overview"},
       {cols: 2, rows: 2, y: 0, x: 0, componentName: 'Logo Square'},
+      {cols: 2, rows: 2, y: 0, x: 0, componentName: 'Basic Paragraph'},
+      {cols: 1, rows: 3, y: 5, x: 2, componentName: 'Row List'},
       // {cols: 2, rows: 1, y: 4, x: 0, isNavigation: 'Context Overview', path: "/context"},
       // {cols: 2, rows: 4, y: 1, x: 5, isViz: true},
       // {cols: 3, rows: 3, y: 2, x: 2, isTable: true, tableData: null},

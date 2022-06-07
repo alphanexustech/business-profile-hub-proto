@@ -18,12 +18,9 @@
   align-items: center;
 }
 
-
-img{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 25%;
+.randomizer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
 }
-h3{text-align: center;}
-div{text-align: center; font-family: Garamond, serif;}

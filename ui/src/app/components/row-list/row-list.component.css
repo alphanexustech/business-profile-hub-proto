@@ -1,0 +1,36 @@
+img {
+    display: flex;
+    width: 125px;
+    height: 110px;
+    border: 1px;
+    border-style: solid;
+    border-color: black;
+}
+
+.rows {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 3px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1px;
+    border-bottom: 1px solid black;
+}
+
+.row:first-child {
+    border-top: 1px solid black;
+}
+
+.row_text {
+    text-align: center;
+    width: 60%;
+}
+
+.row_img {
+    width: 40%;
+}

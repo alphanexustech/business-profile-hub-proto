@@ -1,3 +1,7 @@
+<div class="randomizer">
+  <button mat-button color="warn" [routerLink]="['/output-landing']">Finish</button>
+</div>
+
 <div class="gridster--wrapper">
   <gridster [options]="options">
     <gridster-item [item]="item" *ngFor="let item of dashboard">
@@ -28,34 +32,18 @@
         </div>
 
         <!-- Nate's Prototype Approach -->
-        <div style="background: #222; padding: 32px; color: #aaa" class="gridster-item-content" *ngIf="item.componentName == 'Logo Square'">
-          
-          
-          <img src="http://alphanex.us/assets/antlogo-full-horizontal-negative_5e4cefd.png">
-          <h3 class="important_heading">Alpha Nexus</h3>
-          <div>
-            <div class="idea">218 Gooney Falls Ln</div>
-            <div class="idea">Front Royal VA 22630</div>
-            <div class="idea">540-618-0289</div>
-          </div>
-
-
+        <div class="gridster-item-content" *ngIf="item.componentName == 'Logo Square'">
+          <app-logo-square></app-logo-square>
         </div>
 
-        <div class="item-buttons" *ngIf="item.hasContent">
-          <button mat-icon-button mat-raised-button class="drag-handler">
-            <mat-icon>open_with</mat-icon>
-          </button>
-          <button mat-icon-button mat-raised-button class="remove-button" (mousedown)="removeItem($event, item)"
-                  (touchstart)="removeItem($event, item)">
-            <mat-icon>delete</mat-icon>
-          </button>
+        <div class="gridster-item-content" *ngIf="item.componentName == 'Basic Paragraph'">
+          <app-basic-paragraph></app-basic-paragraph>
         </div>
-        <label *ngIf="!item.hasContent">{{item.label}}</label>
-        <button mat-mini-fab *ngIf="!item.hasContent" (mousedown)="removeItem($event, item)"
-                (touchstart)="removeItem($event, item)">
-          <mat-icon>delete</mat-icon>
-        </button>
+
+        <div class="gridster-item-content" *ngIf="item.componentName == 'Row List'">
+          <app-row-list></app-row-list>
+        </div>
+
       </div>
     </gridster-item>
   </gridster>
