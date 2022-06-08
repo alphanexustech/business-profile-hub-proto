@@ -1,0 +1,34 @@
+.container {
+  height: 275px;
+  width: 300px;
+  position: relative;
+  border: 3px solid black;
+  margin: auto;
+  justify-content: center;
+}
+
+.input {
+  font-size: 15px;
+  margin-top: 5px;
+  font-family: Garamond, serif;
+  text-align: center;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.font {
+  text-align: center;
+  font-family: Garamond, serif;
+}
+
+.button {
+  font-size: 15px;
+  margin-top: 20px;
+  font-family: Garamond, serif;
+  text-align: center;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+}

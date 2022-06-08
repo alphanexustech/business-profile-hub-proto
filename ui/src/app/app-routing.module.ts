@@ -9,6 +9,7 @@ import { TableDetailsComponent } from './components/table-details/table-details.
 import { TableDetailsModifyComponent } from './components/table-details-modify/table-details-modify.component';
 import { ContextOverviewComponent } from './components/context-overview/context-overview.component';
 import { OutputLandingComponent } from './components/output-landing/output-landing.component';
+import { InputFormComponent } from './components/input-form/input-form.component';
 
 const routes: Routes = [
   {
@@ -62,6 +63,14 @@ const routes: Routes = [
     path: 'output-landing',
     canActivate: [AuthGuard],
     component: OutputLandingComponent,
+    data: {
+      header: 'Let\'s Finish!'
+    }
+  },
+  {
+    path: 'input',
+    canActivate: [AuthGuard],
+    component: InputFormComponent,
     data: {
       header: 'Let\'s Finish!'
     }
