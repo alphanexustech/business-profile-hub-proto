@@ -9,9 +9,10 @@ import { LogoSquareComponent } from './components/logo-square/logo-square.compon
 import { BasicParagraphComponent } from './components/basic-paragraph/basic-paragraph.component';
 import { RowListComponent } from './components/row-list/row-list.component';
 import { OutputLandingComponent } from './components/output-landing/output-landing.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 @NgModule({
-  declarations: [ AppDeclarations, LogoSquareComponent, BasicParagraphComponent, RowListComponent, OutputLandingComponent ],
+  declarations: [ AppDeclarations, LogoSquareComponent, BasicParagraphComponent, RowListComponent, OutputLandingComponent, SidebarComponent ],
   imports: [ AppRoutingModule, AppImports ],
   providers: [ AppProviders ],
   bootstrap: [ AppComponent ]
