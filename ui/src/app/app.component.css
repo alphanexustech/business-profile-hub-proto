@@ -12,3 +12,7 @@
   .example-sidenav {
     padding: 20px;
   }
+  .home-icon {
+    display: flex;
+justify-content: flex-start;
+  }
