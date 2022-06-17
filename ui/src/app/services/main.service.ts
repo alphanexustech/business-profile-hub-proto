@@ -56,8 +56,13 @@ export class MainService {
    * AWS CRUD
    */
 
+  awsFilePost(endpoint: string, request: any): Observable<Response> {
+    console.log('POST')
+    return this.http.post<any>(endpoint, request);
+  }
+
   awsFilePut(endpoint: string, request: any): Observable<Response> {
-    return this.http.put<Response>(endpoint, request);
+    return this.http.put<any>(endpoint, request);
   }
 
 }

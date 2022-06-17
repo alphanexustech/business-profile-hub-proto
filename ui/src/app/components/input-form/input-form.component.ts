@@ -97,13 +97,10 @@ export class InputFormComponent implements OnInit {
   }
 
   fileUpload(file) {
-    const awsAPI = `https://w745mami04.execute-api.us-east-1.amazonaws.com/dev/royal-nexus-bucket/${file.fileName}`;
-    const body = {
-      "file": 'hello'
-    }
+    console.log(file)
 
-    // this.mainService.put(awsAPI, body)
-    this.authService.specialPut(awsAPI, body);
+    const awsAPI = `https://w745mami04.execute-api.us-east-1.amazonaws.com/dev/royal-nexus-bucket/${file.fileName}`;
+    const body = file;
 
     this.formSubscription = this.mainService.awsFilePut(awsAPI, body)
     .subscribe(response => {

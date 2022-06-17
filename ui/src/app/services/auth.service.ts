@@ -59,13 +59,18 @@ export class AuthService implements OnInit, OnDestroy {
 
   getAuthHeaders(): HttpHeaders {
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
+      // 'Content-Type': 'application/json',
+      'Content-type': 'image/jpg',
       'Authorization': 'Bearer ' + this.getToken(),
-      'Access-Control-Allow-Origin': '*'
+      'Access-Control-Allow-Origin': '*',
     });
     return headers;
   }
 
+  /* 
+   * IDEA: Move to config, also, uncomment getAuthHeaders.Content-Type (application/json) 
+   * and handle other Content-types better 
+   */
   getHeaders(): HttpHeaders {
     if (this.getToken()) {
       return this.getAuthHeaders();
@@ -88,11 +93,4 @@ export class AuthService implements OnInit, OnDestroy {
     // '/auth/' is the endpoint for getting a token, in exchange for credentials
     return this.http.post<Response>(this.LOGIN_URL + '/auth/', credentials);
   }
-
-  specialPut(credentials: any, request: any): Observable<Response> {
-    console.log(credentials)
-    // '/auth/' is the endpoint for getting a token, in exchange for credentials
-    return this.http.put<Response>(credentials, request);
-  }
-
 }
