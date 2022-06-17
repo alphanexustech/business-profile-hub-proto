@@ -7,6 +7,7 @@ import { TableDetailsModifyComponent } from './components/table-details-modify/t
 import { ContextOverviewComponent } from './components/context-overview/context-overview.component';
 import { ContextFocusComponent } from './components/context-focus/context-focus.component';
 import { D3ExampleComponent } from './components/d3-example/d3-example.component';
+import { InputFormComponent } from './components/input-form/input-form.component';
 
 export const AppDeclarations: any[] = [
   AppComponent,
@@ -17,5 +18,6 @@ export const AppDeclarations: any[] = [
   TableDetailsModifyComponent,
   ContextOverviewComponent,
   ContextFocusComponent,
-  D3ExampleComponent
+  D3ExampleComponent,
+  InputFormComponent
 ];
