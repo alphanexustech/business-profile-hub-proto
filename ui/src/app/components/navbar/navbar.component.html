@@ -1,0 +1,16 @@
+<div>
+    <mat-toolbar color="primary" style="display: flex; justify-content: space-between;">
+        <span>Royal Nexus</span>
+        <div class="example-sidenav-content home-icon">
+            
+            <button mat-button [matMenuTriggerFor]="menu">
+                <mat-icon aria-hidden="false" aria-label="Example home icon">settings</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <div><button mat-button color="primary" [routerLink]="['/login']">Login</button></div>
+                <!-- <div><button [routerLink]="['/logout']">Logout</button></div> -->
+            </mat-menu>
+
+        </div>
+    </mat-toolbar>
+</div>

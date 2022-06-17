@@ -14,6 +14,7 @@ import { BasicParagraphComponent } from './components/basic-paragraph/basic-para
 import { RowListComponent } from './components/row-list/row-list.component';
 import { OutputLandingComponent } from './components/output-landing/output-landing.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 export const AppDeclarations: any[] = [
   AppComponent,
@@ -30,5 +31,6 @@ export const AppDeclarations: any[] = [
   BasicParagraphComponent, 
   RowListComponent, 
   OutputLandingComponent, 
-  SidebarComponent
+  SidebarComponent,
+  NavbarComponent
 ];
