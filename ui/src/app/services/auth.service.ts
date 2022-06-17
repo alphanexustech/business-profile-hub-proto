@@ -12,7 +12,6 @@ class Response {
   providedIn: 'root'
 })
 export class AuthService implements OnInit, OnDestroy {
-
   LOGIN_URL: string = '';
   API_URL: string = '';
   Response: Object = {};
@@ -88,6 +87,12 @@ export class AuthService implements OnInit, OnDestroy {
     console.log(credentials)
     // '/auth/' is the endpoint for getting a token, in exchange for credentials
     return this.http.post<Response>(this.LOGIN_URL + '/auth/', credentials);
+  }
+
+  specialPut(credentials: any, request: any): Observable<Response> {
+    console.log(credentials)
+    // '/auth/' is the endpoint for getting a token, in exchange for credentials
+    return this.http.put<Response>(credentials, request);
   }
 
 }

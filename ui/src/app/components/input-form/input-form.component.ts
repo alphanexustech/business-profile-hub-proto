@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient, HttpEventType } from '@angular/common/http';
 
+import { MainService } from '../../services/main.service';
+import { AuthService } from '../../services/auth.service';
+import { Subscription } from 'rxjs';
+
 interface Assets {
   "logos": {};
   "files": {}
@@ -26,12 +30,21 @@ export class InputFormComponent implements OnInit {
     logos: {},
     files: {}
   };
+  formSubscription: Subscription = new Subscription;
 
-  constructor(private fb: FormBuilder, private http: HttpClient) { }
+  constructor(
+    private fb: FormBuilder,
+    private mainService: MainService,
+    private authService: AuthService,
+  ) { }
   
   
   ngOnInit() {
     this.initializeForm(); 
+  }
+
+  ngOnDestroy() {
+    if (this.formSubscription) this.formSubscription.unsubscribe();
   }
 
   initializeForm(): void {
@@ -80,25 +93,35 @@ export class InputFormComponent implements OnInit {
       default:
         break;
     }
-    console.log(this.assets)
     this.fileUpload(file)
   }
 
   fileUpload(file) {
-  const fd = new FormData();
-  fd.append(file.type, file.file, file.fileName)
+    const awsAPI = `https://w745mami04.execute-api.us-east-1.amazonaws.com/dev/royal-nexus-bucket/${file.fileName}`;
+    const body = {
+      "file": 'hello'
+    }
 
-  this.http.post('<aws http server url>', fd({
-      reportProgress: true,
-      observe: 'events'
-  }))
-  .subscribe(event => {
-    if (event.type === HttpEventType.UploadProgress) {
-      console.log('Upload Progress: ' + Math.round(event.loaded / event.total * 100) + '%');
-    } else if (event.type === HttpEventType.Response) {
-      console.log(event);
-    } 
-      console.log(event);
+    // this.mainService.put(awsAPI, body)
+    this.authService.specialPut(awsAPI, body);
+
+    this.formSubscription = this.mainService.awsFilePut(awsAPI, body)
+    .subscribe(response => {
+      console.log(response)
+      // this.router.navigate(['/review']);
+    }, err => {
+      console.log(err)
     });
+
+
+  // .subscribe(event => {
+  //   if (event.type === HttpEventType.UploadProgress) {
+  //     console.log('Upload Progress: ' + Math.round(event.loaded / event.total * 100) + '%');
+  //   } else if (event.type === HttpEventType.Response) {
+  //     console.log(event);
+  //   } 
+  //     console.log(event);
+  //   });
+  
   }
 }   

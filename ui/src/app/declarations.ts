@@ -9,6 +9,12 @@ import { ContextFocusComponent } from './components/context-focus/context-focus.
 import { D3ExampleComponent } from './components/d3-example/d3-example.component';
 import { InputFormComponent } from './components/input-form/input-form.component';
 
+import { LogoSquareComponent } from './components/logo-square/logo-square.component';
+import { BasicParagraphComponent } from './components/basic-paragraph/basic-paragraph.component';
+import { RowListComponent } from './components/row-list/row-list.component';
+import { OutputLandingComponent } from './components/output-landing/output-landing.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+
 export const AppDeclarations: any[] = [
   AppComponent,
   LoginComponent,
@@ -19,5 +25,10 @@ export const AppDeclarations: any[] = [
   ContextOverviewComponent,
   ContextFocusComponent,
   D3ExampleComponent,
-  InputFormComponent
+  InputFormComponent,
+  LogoSquareComponent, 
+  BasicParagraphComponent, 
+  RowListComponent, 
+  OutputLandingComponent, 
+  SidebarComponent
 ];
