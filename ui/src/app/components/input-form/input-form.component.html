@@ -155,7 +155,7 @@
       </div> 
     </div>
 
-    <div *ngIf="businessInfo.files.hasOwnProperty('file1')">
+    <div *ngIf="assets.files.hasOwnProperty('file1')">
       <div class="imageinput">
         <input style="display: none" type="file" (change)="onFileSelected('file2', $event)" #file2Input>
         <!-- *** ^ TWEAK v *** -->
@@ -171,7 +171,7 @@
       </div> 
     </div> 
 
-    <div *ngIf="businessInfo.files.hasOwnProperty('file2')">
+    <div *ngIf="assets.files.hasOwnProperty('file2')">
       <div class="imageinput">
         <input style="display: none" type="file" (change)="onFileSelected('file3', $event)" #file3Input>
         <!-- *** ^ TWEAK v *** -->
@@ -187,7 +187,7 @@
       </div> 
     </div>
 
-    <div *ngIf="businessInfo.files.hasOwnProperty('file3')">
+    <div *ngIf="assets.files.hasOwnProperty('file3')">
       <div class="imageinput">
         <input style="display: none" type="file" (change)="onFileSelected('file4', $event)" #file4Input>
         <!-- *** ^ TWEAK v *** -->
@@ -203,7 +203,7 @@
       </div>
     </div> 
 
-    <div *ngIf="businessInfo.files.hasOwnProperty('file4')">
+    <div *ngIf="assets.files.hasOwnProperty('file4')">
       <div class="imageinput">
         <input style="display: none" type="file" (change)="onFileSelected('file5', $event)" #file5Input>
         <!-- *** ^ TWEAK v *** -->

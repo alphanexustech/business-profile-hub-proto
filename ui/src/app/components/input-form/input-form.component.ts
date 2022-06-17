@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient, HttpEventType } from '@angular/common/http';
 
-interface BusinessInfo {
-  "businessInfo": string;
+interface Assets {
   "logos": {};
   "files": {}
 }
@@ -23,21 +22,15 @@ interface FileObject {
 export class InputFormComponent implements OnInit {
   inputForm: FormGroup;
 
-  // files: FileObject[] = []; 
-  files: string[] = [];
-
-  businessInfo: BusinessInfo = {
-    businessInfo: '',
+  assets: Assets = {
     logos: {},
     files: {}
   };
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private http: HttpClient) { }
   
-  // constructor(private http: HttpClient) { }
   
   ngOnInit() {
-    console.log(this.files)
     this.initializeForm(); 
   }
 
@@ -62,37 +55,50 @@ export class InputFormComponent implements OnInit {
   }
   
   onSubmit(): void {
-    console.log(this.inputForm);
+    // console.log(this.inputForm);
   }
 
   onFileSelected(fileKey, event) {
-    console.log(event.target.files)
     const selectedFile = <File>event.target.files[0];
-    console.log(event);
-    // const file = {
-    //   type: "image",
-    //   file: this.selectedFile,
-    //   fileName: this.selectedFile.name
-    // }
-    console.log(fileKey)
-    this.businessInfo.files[fileKey] = selectedFile.name;
-    console.log(this.businessInfo)
+    const file = {
+      type: "image", 
+      file: selectedFile,
+      fileName: selectedFile.name
+    }
+
+    // IDEA: Manage the condition in a less hack way
+    const fileCat = fileKey[0];
+    switch (fileCat) {
+      // Image Files
+      case 'f':
+        this.assets.files[fileKey] = file;
+        break;
+      // Logo Files
+      case 'l':
+        this.assets.logos[fileKey] = file;
+        break;
+      default:
+        break;
+    }
+    console.log(this.assets)
+    this.fileUpload(file)
   }
 
-  // onUpload() {
-  //  const fd = new FormData();
-  //  fd.append('image', this.selectedFile, this.selectedFile.name)
-  //  this.http.post('<aws http server url>', fd{
-  //    reportProgress: true;
-  //    observe: 'events'
-  //  })
-  //    .subscribe(event => {
-  //      if (event.type === HttpEventType.UploadProgress) {
-  //        console.log('Upload Progress: ' + Math.round(event.loaded / event.total * 100) + '%');
-  //      } else if (event.type === HttpEventType.Response) {
-  //        console.log(event);
-  //      } 
-  //      console.log(event);
-  //    });
-  //  }
+  fileUpload(file) {
+  const fd = new FormData();
+  fd.append(file.type, file.file, file.fileName)
+
+  this.http.post('<aws http server url>', fd({
+      reportProgress: true,
+      observe: 'events'
+  }))
+  .subscribe(event => {
+    if (event.type === HttpEventType.UploadProgress) {
+      console.log('Upload Progress: ' + Math.round(event.loaded / event.total * 100) + '%');
+    } else if (event.type === HttpEventType.Response) {
+      console.log(event);
+    } 
+      console.log(event);
+    });
+  }
 }   
