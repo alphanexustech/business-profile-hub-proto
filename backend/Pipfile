@@ -1,0 +1,24 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+
+[packages]
+
+bcrypt = "*"
+flask = "*"
+flask-bcrypt = "*"
+flask-cors = "*"
+flask-pymongo = "*"
+requests = "*"
+itsdangerous = "*"
+"jinja2" = "*"
+"py2neo" = "*"
+werkzeug = "*"
+wheel = "*"
+pyjwt = "*"
+
+
+[dev-packages]
