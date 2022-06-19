@@ -1,0 +1,43 @@
+.wrapper {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.options-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.layout-row {
+    display: flex;
+    justify-content: center;
+}
+
+.mat-card {
+    width: 12rem;
+    height: 12rem;
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.mat-card:hover {
+    background: #CCC;
+    cursor: pointer;
+}
+
+.mat-card.inv {
+    background: #222;
+    color: #CCC;
+}
+
+.review-button {
+    margin-top: 3rem;
+}

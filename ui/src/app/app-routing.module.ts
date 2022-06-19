@@ -10,6 +10,7 @@ import { TableDetailsModifyComponent } from './components/table-details-modify/t
 import { ContextOverviewComponent } from './components/context-overview/context-overview.component';
 import { OutputLandingComponent } from './components/output-landing/output-landing.component';
 import { InputFormComponent } from './components/input-form/input-form.component';
+import { OptionsComponent } from './components/options/options.component';
 
 const routes: Routes = [
   {
@@ -68,11 +69,17 @@ const routes: Routes = [
     }
   },
   {
-    path: 'input',
-    canActivate: [AuthGuard],
+    path: 'getting-started',
     component: InputFormComponent,
     data: {
-      header: 'Let\'s Finish!'
+      header: 'Getting Started!'
+    }
+  },
+  {
+    path: 'choose-layout',
+    component: OptionsComponent,
+    data: {
+      header: 'Choose Layout!'
     }
   },
   {
