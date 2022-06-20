@@ -1,0 +1,21 @@
+.landing-container {
+    margin-top: 2rem;
+}
+
+.landing-rows {
+    margin-top: 4rem;
+}
+
+.landing-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.landing-row-image,
+.landing-row-copy {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

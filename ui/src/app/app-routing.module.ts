@@ -61,14 +61,6 @@ const routes: Routes = [
     }
   },
   {
-    path: 'output-landing',
-    canActivate: [AuthGuard],
-    component: OutputLandingComponent,
-    data: {
-      header: 'Let\'s Finish!'
-    }
-  },
-  {
     path: 'getting-started',
     component: InputFormComponent,
     data: {
@@ -80,6 +72,14 @@ const routes: Routes = [
     component: OptionsComponent,
     data: {
       header: 'Choose Layout!'
+    }
+  },
+  {
+    path: 'output-landing',
+    canActivate: [AuthGuard],
+    component: OutputLandingComponent,
+    data: {
+      header: 'Let\'s Finish!'
     }
   },
   {

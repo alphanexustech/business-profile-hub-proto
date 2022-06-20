@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./basic-paragraph.component.css']
 })
 export class BasicParagraphComponent implements OnInit {
+  header: string;
+  line: string;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.header = "I'm a title";
+    this.line = "Let's talk about the possibilities, together";
   }
 
 }

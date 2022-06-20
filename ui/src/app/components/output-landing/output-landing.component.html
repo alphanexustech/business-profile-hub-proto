@@ -1,3 +1,41 @@
-<app-logo-square></app-logo-square>
-<app-basic-paragraph></app-basic-paragraph>
-<app-row-list></app-row-list>
+<div>
+    <mat-toolbar color="secondary" style="display: flex; justify-content: flex-start;">
+        <span>{{businessName}}</span>
+        <div class="example-sidenav-content home-icon">
+            
+            <button mat-button [matMenuTriggerFor]="menu">
+                <mat-icon aria-hidden="false" aria-label="Example home icon">settings</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <div><button mat-button color="primary" [routerLink]="['/login']">Login</button></div>
+                <!-- <div><button [routerLink]="['/logout']">Logout</button></div> -->
+            </mat-menu>
+
+        </div>
+    </mat-toolbar>
+</div>
+<div class="landing-container">
+    <!-- https://stackoverflow.com/questions/42793292/how-to-load-image-and-other-assets-in-angular-an-project -->
+    
+    <!-- IDEA: Create <landing-rows> as a component, and create <landing-row> -->
+    <div class="landing-rows">
+        <div class="landing-row">
+            <div class="landing-row-image">
+                <img [src]="imgPath01" />
+            </div>
+            <div class="landing-row-copy">
+                <app-basic-paragraph header="header01" line="line01"></app-basic-paragraph>
+            </div>
+        </div>
+        <div class="landing-row">
+            <div class="landing-row-copy">
+                <app-basic-paragraph></app-basic-paragraph>
+            </div>
+            <div class="landing-row-image">
+                <img [src]="imgPath02" />
+            </div>
+        </div>
+    </div>
+    
+    <app-logo-square></app-logo-square>
+</div>
