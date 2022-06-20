@@ -1,17 +1,9 @@
 <div>
     <mat-toolbar color="secondary" style="display: flex; justify-content: flex-start;">
         <span>{{businessName}}</span>
-        <div class="example-sidenav-content home-icon">
-            
-            <button mat-button [matMenuTriggerFor]="menu">
-                <mat-icon aria-hidden="false" aria-label="Example home icon">settings</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu">
-                <div><button mat-button color="primary" [routerLink]="['/login']">Login</button></div>
-                <!-- <div><button [routerLink]="['/logout']">Logout</button></div> -->
-            </mat-menu>
-
-        </div>
+        <button mat-raised-button color="primary">Layout</button>
+        <button mat-raised-button color="primary">About</button>
+        <button mat-raised-button color="primary">Contact</button>
     </mat-toolbar>
 </div>
 <div class="landing-container">
@@ -19,20 +11,24 @@
     
     <!-- IDEA: Create <landing-rows> as a component, and create <landing-row> -->
     <div class="landing-rows">
-        <div class="landing-row">
-            <div class="landing-row-image">
-                <img [src]="imgPath01" />
-            </div>
-            <div class="landing-row-copy">
-                <app-basic-paragraph header="header01" line="line01"></app-basic-paragraph>
-            </div>
-        </div>
-        <div class="landing-row">
-            <div class="landing-row-copy">
-                <app-basic-paragraph></app-basic-paragraph>
-            </div>
-            <div class="landing-row-image">
-                <img [src]="imgPath02" />
+        <div>
+            <div class="landing-row" *ngFor="let row of layoutRows; index as i;">
+                <div *ngIf="i % 2 == 0">
+                    <div class="landing-row-image">
+                        <img [src]="row.imgPath" />
+                    </div>
+                    <div class="landing-row-copy">
+                        <app-basic-paragraph header="{{row.header}}" line="{{row.line}}"></app-basic-paragraph>
+                    </div>
+                </div>
+                <div *ngIf="i % 2 == 1">
+                    <div class="landing-row-copy">
+                        <app-basic-paragraph header="{{row.header}}" line="{{row.line}}"></app-basic-paragraph>
+                    </div>
+                    <div class="landing-row-image">
+                        <img [src]="row.imgPath" />
+                    </div>
+                </div>
             </div>
         </div>
     </div>
