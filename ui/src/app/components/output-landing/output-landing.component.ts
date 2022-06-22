@@ -15,9 +15,6 @@ interface LayoutRow {
 
 export class OutputLandingComponent implements OnInit {
   businessName: string;
-  imgPath01: string;
-  imgPath02: string;
-
   layoutRows: LayoutRow[];  
 
   constructor() { }

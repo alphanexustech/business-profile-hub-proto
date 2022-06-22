@@ -20,6 +20,11 @@
     align-items: center;
 }
 
+.landing-row-image > img {
+    max-height: 32rem;
+    max-width: 32rem;
+}
+
 .output-button-nav > button {
     margin-left: 1rem;
 }
