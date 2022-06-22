@@ -1,9 +1,11 @@
 <div>
     <mat-toolbar color="secondary" style="display: flex; justify-content: flex-start;">
         <span>{{businessName}}</span>
-        <button mat-raised-button color="primary">Layout</button>
-        <button mat-raised-button color="primary">About</button>
-        <button mat-raised-button color="primary">Contact</button>
+        <div class="output-button-nav">
+            <button [routerLink]="['/output-landing']" mat-raised-button color="primary">Layout</button>
+            <button [routerLink]="['/output-about']" mat-raised-button color="primary">About</button>
+            <button [routerLink]="['/output-contact']" mat-raised-button color="primary">Contact</button>
+        </div>
     </mat-toolbar>
 </div>
 <div class="landing-container">
@@ -12,8 +14,8 @@
     <!-- IDEA: Create <landing-rows> as a component, and create <landing-row> -->
     <div class="landing-rows">
         <div>
-            <div class="landing-row" *ngFor="let row of layoutRows; index as i;">
-                <div *ngIf="i % 2 == 0">
+            <div *ngFor="let row of layoutRows; index as i;">
+                <div class="landing-row" *ngIf="i % 2 == 0">
                     <div class="landing-row-image">
                         <img [src]="row.imgPath" />
                     </div>
@@ -21,7 +23,7 @@
                         <app-basic-paragraph header="{{row.header}}" line="{{row.line}}"></app-basic-paragraph>
                     </div>
                 </div>
-                <div *ngIf="i % 2 == 1">
+                <div class="landing-row" *ngIf="i % 2 == 1">
                     <div class="landing-row-copy">
                         <app-basic-paragraph header="{{row.header}}" line="{{row.line}}"></app-basic-paragraph>
                     </div>

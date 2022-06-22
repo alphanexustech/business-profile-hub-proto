@@ -11,6 +11,8 @@ import { ContextOverviewComponent } from './components/context-overview/context-
 import { OutputLandingComponent } from './components/output-landing/output-landing.component';
 import { InputFormComponent } from './components/input-form/input-form.component';
 import { OptionsComponent } from './components/options/options.component';
+import { OutputAboutComponent } from './components/output-about/output-about.component';
+import { OutputContactComponent } from './components/output-contact/output-contact.component';
 
 const routes: Routes = [
   {
@@ -78,6 +80,22 @@ const routes: Routes = [
     path: 'output-landing',
     canActivate: [AuthGuard],
     component: OutputLandingComponent,
+    data: {
+      header: 'Let\'s Finish!'
+    }
+  },
+  {
+    path: 'output-about',
+    canActivate: [AuthGuard],
+    component: OutputAboutComponent,
+    data: {
+      header: 'Let\'s Finish!'
+    }
+  },
+  {
+    path: 'output-contact',
+    canActivate: [AuthGuard],
+    component: OutputContactComponent,
     data: {
       header: 'Let\'s Finish!'
     }
