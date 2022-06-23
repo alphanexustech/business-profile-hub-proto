@@ -14,12 +14,23 @@ interface AboutRow {
 
 export class OutputAboutComponent implements OnInit {
   businessName: string;
-  aboutRows: AboutRow[];  
+  aboutRows: AboutRow[];
+
+  landingExists: boolean;
+  aboutExists: boolean;
+  contactExists: boolean;
 
   constructor() { }
 
   ngOnInit(): void {
     this.aboutRows = [];
+    
+    // IDEA: Rewrite this to be follow DRY
+    const selectedLayouts = JSON.parse(sessionStorage["selectedLayouts"]);
+
+    this.landingExists = selectedLayouts.includes('landing');
+    this.aboutExists = selectedLayouts.includes('about');
+    this.contactExists = selectedLayouts.includes('contact');
 
     // MOCK
     this.aboutRows.push({

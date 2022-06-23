@@ -14,6 +14,10 @@ export class OutputContactComponent implements OnInit {
   businessName: string;
   contactForm: FormGroup;
 
+  landingExists: boolean;
+  aboutExists: boolean;
+  contactExists: boolean;
+  
   constructor(
     private fb: FormBuilder,
     private mainService: MainService,
@@ -22,7 +26,14 @@ export class OutputContactComponent implements OnInit {
   formSubscription: Subscription = new Subscription;
 
   ngOnInit(): void {
-    this.initializeForm(); 
+    this.initializeForm();
+
+    // IDEA: Rewrite this to be follow DRY
+    const selectedLayouts = JSON.parse(sessionStorage["selectedLayouts"]);
+
+    this.landingExists = selectedLayouts.includes('landing');
+    this.aboutExists = selectedLayouts.includes('about');
+    this.contactExists = selectedLayouts.includes('contact');
     
     // IDEA: Change to a place on our server
     this.businessName = "Alpha Nexus Technolgies LLC"

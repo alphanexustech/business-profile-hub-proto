@@ -15,12 +15,23 @@ interface LayoutRow {
 
 export class OutputLandingComponent implements OnInit {
   businessName: string;
-  layoutRows: LayoutRow[];  
+  layoutRows: LayoutRow[];
+  
+  landingExists: boolean;
+  aboutExists: boolean;
+  contactExists: boolean;
 
   constructor() { }
 
   ngOnInit(): void {
     this.layoutRows = [];
+    
+    // IDEA: Rewrite this to be follow DRY
+    const selectedLayouts = JSON.parse(sessionStorage["selectedLayouts"]);
+
+    this.landingExists = selectedLayouts.includes('landing');
+    this.aboutExists = selectedLayouts.includes('about');
+    this.contactExists = selectedLayouts.includes('contact');
 
     // MOCK
     this.layoutRows.push({
