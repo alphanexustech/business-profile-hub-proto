@@ -61,14 +61,14 @@ https://material.angular.io/components/stepper/overview
 
   <div>
 
-    <mat-drawer-container class="example-container" autosize>
-      <mat-drawer #drawer class="example-sidenav" mode="side">
+    <mat-drawer-container autosize>
+      <mat-drawer #drawer class="sidebar" mode="side">
         
         <app-sidebar></app-sidebar>
 
       </mat-drawer>
 
-      <div class="example-sidenav-content home-icon">
+      <div class="home-icon">
         <button type="button" mat-button (click)="drawer.toggle()">
           <mat-icon aria-hidden="false" aria-label="Example home icon">menu</mat-icon>
         </button>

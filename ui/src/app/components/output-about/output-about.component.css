@@ -1,28 +1,30 @@
-.landing-container {
+.about-container {
     margin-top: 2rem;
 }
 
-.landing-rows {
+.about-rows {
     margin: 4rem 0rem 4rem 0rem;
 }
 
-.landing-row {
+.about-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #CCC;
+    padding: 2rem 0rem 2rem 0rem;
 }
 
-.landing-row-image,
-.landing-row-copy {
+.about-row-image,
+.about-row-copy {
     width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.landing-row-image > img {
-    max-height: 32rem;
-    max-width: 32rem;
+.about-row-image > img {
+    max-height: 16rem;
+    max-width: 16rem;
 }
 
 .output-button-nav > button {

@@ -1,0 +1,32 @@
+<div>
+    <mat-toolbar color="secondary" style="display: flex; justify-content: flex-start;">
+        <span>{{businessName}}</span>
+        <div class="output-button-nav">
+            <button *ngIf="landingExists" [routerLink]="['/output-landing']" mat-raised-button color="primary">Layout</button>
+            <button *ngIf="aboutExists" [routerLink]="['/output-about']" mat-raised-button color="primary">About</button>
+            <button *ngIf="contactExists" [routerLink]="['/output-contact']" mat-raised-button color="primary">Contact</button>
+        </div>
+    </mat-toolbar>
+</div>
+<div class="about-container">
+    <div *ngFor="let row of aboutRows; index as i;">
+        <div class="about-rows">
+            <div class="about-row" *ngIf="i % 2 == 0">
+                <div class="about-row-image">
+                    <img [src]="row.imgPath" />
+                </div>
+                <div class="about-row-copy">
+                    <app-basic-paragraph header="{{row.header}}" line="{{row.line}}"></app-basic-paragraph>
+                </div>
+            </div>
+            <div class="about-row" *ngIf="i % 2 == 1">
+                <div class="about-row-copy">
+                    <app-basic-paragraph header="{{row.header}}" line="{{row.line}}"></app-basic-paragraph>
+                </div>
+                <div class="about-row-image">
+                    <img [src]="row.imgPath" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

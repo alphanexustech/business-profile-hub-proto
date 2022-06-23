@@ -1,3 +1,39 @@
-<app-logo-square></app-logo-square>
-<app-basic-paragraph></app-basic-paragraph>
-<app-row-list></app-row-list>
+<div>
+    <mat-toolbar color="secondary" style="display: flex; justify-content: flex-start;">
+        <span>{{businessName}}</span>
+        <div class="output-button-nav">
+            <button *ngIf="landingExists" [routerLink]="['/output-landing']" mat-raised-button color="primary">Layout</button>
+            <button *ngIf="aboutExists" [routerLink]="['/output-about']" mat-raised-button color="primary">About</button>
+            <button *ngIf="contactExists" [routerLink]="['/output-contact']" mat-raised-button color="primary">Contact</button>
+        </div>
+    </mat-toolbar>
+</div>
+<div class="landing-container">
+    <!-- https://stackoverflow.com/questions/42793292/how-to-load-image-and-other-assets-in-angular-an-project -->
+    
+    <!-- IDEA: Create <landing-rows> as a component, and create <landing-row> -->
+    <div class="landing-rows">
+        <div>
+            <div *ngFor="let row of layoutRows; index as i;">
+                <div class="landing-row" *ngIf="i % 2 == 0">
+                    <div class="landing-row-image">
+                        <img [src]="row.imgPath" />
+                    </div>
+                    <div class="landing-row-copy">
+                        <app-basic-paragraph header="{{row.header}}" line="{{row.line}}"></app-basic-paragraph>
+                    </div>
+                </div>
+                <div class="landing-row" *ngIf="i % 2 == 1">
+                    <div class="landing-row-copy">
+                        <app-basic-paragraph header="{{row.header}}" line="{{row.line}}"></app-basic-paragraph>
+                    </div>
+                    <div class="landing-row-image">
+                        <img [src]="row.imgPath" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <app-logo-square></app-logo-square>
+</div>
