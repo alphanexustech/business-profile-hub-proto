@@ -94,6 +94,8 @@ export class InputFormComponent implements OnInit {
         break;
     }
     this.fileUpload(file)
+
+
   }
 
   fileUpload(file) {
