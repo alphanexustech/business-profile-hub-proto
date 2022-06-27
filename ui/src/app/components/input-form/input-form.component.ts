@@ -98,13 +98,18 @@ export class InputFormComponent implements OnInit {
 
   }
 
+  /*
+   *
+   * Send this as multipart form data
+   *
+   **/
   fileUpload(file) {
     console.log(file)
 
-    const awsAPI = `https://w745mami04.execute-api.us-east-1.amazonaws.com/dev/royal-nexus-bucket/${file.fileName}`;
+    const fileAPI = `http://localhost:5000/files/`;
     const body = file;
 
-    this.formSubscription = this.mainService.awsFilePut(awsAPI, body)
+    this.formSubscription = this.mainService.filePost(fileAPI, body)
     .subscribe(response => {
       console.log(response)
       // this.router.navigate(['/review']);

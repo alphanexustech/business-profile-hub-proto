@@ -1,4 +1,5 @@
 from flask import Blueprint, request, jsonify
+from flask import flash, redirect, url_for
 
 import requests, json
 
@@ -6,6 +7,11 @@ from . import controllers
 
 from config import configurations
 from flask_pymongo import ObjectId
+
+from werkzeug.utils import secure_filename
+
+UPLOAD_FOLDER = '/path/to/the/uploads'
+ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 
 files = Blueprint('files', __name__)
 
@@ -21,8 +27,28 @@ def get_file(file_name=None):
     file_name = ''
     return jsonify(controllers.get_file(file_name))
 
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
 @files.route('/', methods=['POST'])
 def save_file():
-    # IDEA: write the correct syntaxt for the getting the file from the request
-    file_data = request.get_file()
-    return jsonify(controllers.save_file(file_data))
+    
+    # check if the post request has the file part
+    # if 'file' not in request.files:
+    #     print('No file part')
+    # file = request.files['file']
+    # If the user does not select a file, the browser submits an
+    # empty file without a filename.
+    # if file.filename == '':
+    #     flash('No selected file')
+    #     return redirect(request.url)
+    #     filename = secure_filename(file.filename)
+    #     # file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+
+    print(request.form['file'])
+
+    # file_data = request.get_file()
+    # print(file_data)
+    return "Not Implemented"
+    # return jsonify(controllers.save_file(file_data))
