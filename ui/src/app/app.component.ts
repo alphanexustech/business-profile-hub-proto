@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +9,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 export class AppComponent { 
   isLinear = false;
 
-  constructor() {}
-
-  changeMe() {
-    console.log('Stepper clicked!')
+  constructor(
+    private router: Router,
+  ) { }
+  
+  loadPage(step) {
+    if (step) { 
+      this.router.navigateByUrl(step);
+    }
   }
 }
 
