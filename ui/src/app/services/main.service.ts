@@ -52,4 +52,16 @@ export class MainService {
     return this.http.delete<Response>(this.API_URL + endpoint);
   }
 
+  /*
+   * AWS CRUD
+   */
+
+  filePost(endpoint: string, request: any): Observable<Response> {
+    return this.http.post<any>(endpoint, request);
+  }
+
+  filePut(endpoint: string, request: any): Observable<Response> {
+    return this.http.put<any>(endpoint, request);
+  }
+
 }

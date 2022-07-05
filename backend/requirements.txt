@@ -1,0 +1,10 @@
+bcrypt
+flask
+flask-bcrypt
+flask-cors
+flask-pymongo
+requests
+itsdangerous
+werkzeug
+wheel
+pyjwt

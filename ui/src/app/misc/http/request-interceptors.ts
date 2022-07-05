@@ -10,6 +10,7 @@ export class HttpRequestInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: any): Observable<any> {
     let authService = this.inj.get(AuthService);
+    /* IDEA: Define header patterns somewhere more config-y, why AuthService? */
     const headers = authService.getHeaders();
     const headerReq = req.clone({ headers: headers });
     return next.handle(headerReq);

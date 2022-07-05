@@ -1,0 +1,31 @@
+<div class="wrapper">
+    <div class="options-heading">
+        <h1>Choose up to 3 pages</h1>
+        <h3>Preivew your website on the next page</h3>
+    </div>
+
+    <div class="layout-row">
+        <mat-card
+            [ngClass]="checkSelected('landing') ? 'inv' : ''"
+            (click)="selectOption('landing')">
+            Landing
+        </mat-card>
+        <mat-card
+            [ngClass]="checkSelected('about') ? 'inv' : ''"
+            (click)="selectOption('about')">
+            About
+        </mat-card>
+        <mat-card
+            [ngClass]="checkSelected('contact') ? 'inv' : ''"
+            (click)="selectOption('contact')">
+            Contact
+        </mat-card>
+    </div>
+
+    <div class="review-button">
+        <button
+            mat-raised-button type="button" color="primary"
+            class="procee"
+            (click)="updateSelectedPages()">Let's Review</button>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+.about-container {
+    margin-top: 2rem;
+}
+
+.about-rows {
+    margin: 4rem 0rem 4rem 0rem;
+}
+
+.about-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #DDD;
+    padding: 2rem 0rem 2rem 0rem;
+}
+
+.about-row-image,
+.about-row-copy {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-row-image > img {
+    max-height: 16rem;
+    max-width: 16rem;
+}
+
+.output-button-nav > button {
+    margin-left: 1rem;
+}

@@ -1,15 +1,86 @@
 <div class="mat-app-background basic-container"
-     style="height: 100vh;">
-  <h1>Angular 12 Boilerplate</h1>
-  <h3>https://material.angular.io/components/sidenav/overview (SideNav)</h3>
-  <ul class="menu">
-    <li><button mat-button color="primary" [routerLink]="['/login']">0. Login</button></li>
-    <!-- <li><button [routerLink]="['/logout']">Logout</button></li> -->
-    <li><button mat-button color="primary" [routerLink]="['/input']">1. Input Data</button></li>
-    <li><button mat-button color="primary" [routerLink]="['/home']">2. Home</button></li>
-    <li><button mat-button color="primary" [routerLink]="['/output-landing']">3. Finish</button></li>
-  </ul>
-  <div style="margin: 5% 0%;">
-    <router-outlet></router-outlet>
+     style="height: 100vh; ">
+    <div>
+      <app-navbar></app-navbar>
+    <div>
+<!--
+
+https://material.angular.io/components/stepper/overview
+
+      <mat-stepper
+        class="example-stepper"
+        [orientation]="(stepperOrientation | async)!">
+        <mat-step [stepControl]="firstFormGroup" label="Fill out your name">
+          <form [formGroup]="firstFormGroup">
+            <mat-form-field appearance="fill">
+              <mat-label>Name</mat-label>
+              <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup" label="Fill out your address">
+          <form [formGroup]="secondFormGroup">
+            <mat-form-field appearance="fill">
+              <mat-label>Address</mat-label>
+              <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+                    required>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="thirdFormGroup" label="Fill out your phone number">
+          <form [formGroup]="thirdFormGroup">
+            <mat-form-field appearance="fill">
+              <mat-label>Phone number</mat-label>
+              <input matInput formControlName="thirdCtrl" placeholder="Ex. 12345678" required>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          <p>You are now done.</p>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+          </div>
+        </mat-step>
+      </mat-stepper>
+
+    </div>
+-->
+  </div>
+
+  <div>
+
+    <mat-drawer-container autosize>
+      <mat-drawer #drawer class="sidebar" mode="side">
+        
+        <app-sidebar></app-sidebar>
+
+      </mat-drawer>
+
+
+      <div class="example-sidenav-content home-icon">
+        <button type="button" mat-button (click)="drawer.toggle()">
+          <mat-icon aria-hidden="false" aria-label="Example home icon">menu</mat-icon>
+        </button>
+        <img class="royalnexuslogo" src="https://imgur.com/TOnjmRT.png"/>
+
+      </div>
+
+      <router-outlet></router-outlet>
+
+    </mat-drawer-container>
+
+
   </div>
 </div>

@@ -1,0 +1,177 @@
+.backgroundimage {
+  background-image: 
+  linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 35% 65%, rgba(255, 255, 255, 0)),
+  url("http://www.discoverfrontroyal.com/uploads/1/2/4/0/124066283/dsc0484_orig.jpg");
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.formfields {
+  justify-content: space-around;
+  flex-direction: column;
+  display: flex;
+}
+
+.header {
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  margin-top: 6rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.midheader {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: large;
+  margin-top: 2rem;
+}
+
+.subheader {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: small;
+  margin-top: -1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.divider {
+  margin-top: 1rem;
+  margin-bottom: -1rem;
+}
+
+.firstnameinput {
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+  width: 13rem;
+  margin-bottom: -1rem;
+}
+
+.lastnameinput {
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+  width: 13rem;
+  margin-bottom: -1rem;
+}
+
+.suffixinput {
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+  width: 4rem;
+  margin-bottom: -1rem;
+}
+
+.businessnameinput {
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+  width: 13rem;
+  margin-bottom: -1rem;
+}
+
+.businessemailinput {
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+  width: 13rem;
+  margin-bottom: -1rem;
+}
+
+.businessphoneinput {
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+  width: 13rem;
+}
+
+.businessaddressinput {
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+  width: 18rem;
+  margin-bottom: -1rem;
+}
+
+.businessaddresstowninput {
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+  width: 13rem;
+  margin-bottom: -1rem;
+}
+
+.businessaddresszipinput {
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+  width: 5rem;
+}
+
+.logoinput {
+  flex-direction: row;
+  display: flex;
+}
+
+.logocheckmark {
+  display: flex;
+  align-items: center;
+  
+}
+
+.imageinput {
+  flex-direction: row;
+  display: flex;
+}
+
+.imagecheckmark {
+  display: flex;
+  align-items: center;
+}
+
+.imagetextheader {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: small;
+  margin-bottom: 0.5rem;
+}
+
+.imagetextdivider {
+  margin-top: 1rem;
+}
+
+.applybutton {
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+  margin-bottom: 6rem;
+  margin-top: 1rem;
+}
+
+.applybuttondivider {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.imagetextbox {
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+  width: 18rem;
+  margin-bottom: 0rem;
+  margin-top: 0rem;
+}
+
+.imagetextheader2 {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: small;
+  margin-bottom: 0.5rem;
+  margin-top:-1rem;
+}

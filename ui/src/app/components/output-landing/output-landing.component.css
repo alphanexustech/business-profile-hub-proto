@@ -1,0 +1,45 @@
+.landing-container {
+    margin-top: 2rem;
+}
+
+.landing-rows {
+    margin: 4rem 0rem 4rem 0rem;
+}
+
+.landing-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+    background-color: #EEE;
+    padding: 2rem 0rem 2rem 0rem;
+    margin-bottom: 1rem;
+}
+
+.landing-row-image,
+.landing-row-copy {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.landing-row-image > img {
+    max-height: 32rem;
+    max-width: 32rem;
+}
+
+.output-button-nav > button {
+    margin-left: 1rem;
+}
+
+@media (max-width: 600px) {
+    .landing-row {
+        flex-direction: column;
+    }
+
+    .landing-row-image > img {
+        padding: 2rem 0rem 2rem 0rem;
+    }
+  }
