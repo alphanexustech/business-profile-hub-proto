@@ -1,5 +1,21 @@
-<div class="menu">
-  <div><button mat-button color="primary" [routerLink]="['/input']">Input Data</button></div>
-  <div><button mat-button color="primary" [routerLink]="['/home']">Home</button></div>
-  <div><button mat-button color="primary" [routerLink]="['/output-landing']">Finish</button></div>
+<div>
+    <div class="margintop">
+        <button mat-button [routerLink]="['/input']">Input Data</button>
+    </div>
+
+    <div class="margintop">
+        <button mat-button [routerLink]="['/home']">Home</button>
+    </div>
+
+    <div class="margintop">
+        <button mat-button [routerLink]="['/output-landing']">Finish</button>
+    </div>   
+
+    <div class="margintop">
+        <button mat-button [routerLink]="['/logout']">Logout</button>
+    </div>
+
+    <div class="margintop">
+        <button mat-button [routerLink]="['/settings']">Settings</button>
+    </div>
 </div>

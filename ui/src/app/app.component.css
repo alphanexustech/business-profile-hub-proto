@@ -1,18 +1,31 @@
 .example-container {
-    border: 1px solid rgba(0, 0, 0, 0.5);
+    background-color: white;
   }
   
-  .example-sidenav-content {
+.example-sidenav-content {
+  display: flex;
+  height: 6rem;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin-left: 1rem;
+}
+  
+.example-sidenav {
+  padding: 30px;
+}
+
+.home-icon {
     display: flex;
-    height: 100%;
-    align-items: center;
+    justify-content: flex-start;
+    color: #174273;
+}
+
+.royalnexuslogo {
+    display: flex;
+    width: 23.5rem;
     justify-content: center;
-  }
-  
-  .example-sidenav {
-    padding: 20px;
-  }
-  .home-icon {
-    display: flex;
-justify-content: flex-start;
-  }
+    align-items: center;
+    margin: 30rem;
+    flex-direction: column;
+}
