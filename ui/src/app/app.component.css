@@ -1,9 +1,35 @@
-.sidebar {
-  padding: 1.5rem;
+.example-container {
+    background-color: white;
+  }
+  
+.example-sidenav-content {
+  display: flex;
+  height: 6rem;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin-left: 1rem;
+}
+  
+.example-sidenav {
+  padding: 30px;
 }
 
 .home-icon {
-  display: flex;
-  justify-content: flex-start;
-  height: 3rem;
+    display: flex;
+    justify-content: flex-start;
+    height: 3rem;
+    color: #174273;
+}
+
+.royalnexuslogo {
+    display: flex;
+    width: 23.5rem;
+    justify-content: center;
+    align-items: center;
+    margin: 30rem;
+    flex-direction: column;
+}
+.sidebar {
+  padding: 1.5rem;
 }
