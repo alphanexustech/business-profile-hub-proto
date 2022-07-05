@@ -3,12 +3,12 @@ import sys
 
 from users.views import users
 from auth.views import auth
-from tasks.views import tasks
+from files.views import files
 from elements.views import elements
 
 app.register_blueprint(users, url_prefix='/users')
 app.register_blueprint(auth, url_prefix='/auth')
-app.register_blueprint(tasks, url_prefix='/tasks')
+app.register_blueprint(files, url_prefix='/files')
 app.register_blueprint(elements, url_prefix='/elements')
 
 # Sets the port, or defaults to 80
