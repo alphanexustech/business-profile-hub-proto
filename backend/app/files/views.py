@@ -32,16 +32,9 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-from werkzeug.datastructures import ImmutableMultiDict
-
 @files.route('/', methods=['POST'])
 def save_file(file_name=None):
     
-    print(request.files['thumbnail'])
-
-    # data = dict(request.data)
-    # print(data)
-
     # check if the post request has the file part
     # if 'file' not in request.files:
     #     print('No file part')
@@ -53,21 +46,12 @@ def save_file(file_name=None):
     #     return redirect(request.url)
     #     filename = secure_filename(file.filename)
     #     # file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+ 
     
-    # print(request) 
-    # print(dir(request))
-    # print(dir(request.form))
-    # print("Form itself: ", request.form)
-    # print("To dict: ", request.form.to_dict())
-    # print("Here be form dict keys:", list(request.form.keys()))
+    thing = request.files
 
-    # print("Attempt at values:", request.form.values())
-    # print("Get data:", request.get_data())
-
-    # print("get json:" , request.get_json())
-    # print(request.form['file'])
-
+    print("Here's thing:", type(thing), dir(thing), thing)
     # file_data = request.get_file()
     # print(file_data)
-    return "Not Implemented"
+    return jsonify({"response":"Not Implemented"})
     # return jsonify(controllers.save_file(file_data))
