@@ -93,6 +93,7 @@ export class InputFormComponent implements OnInit {
       default:
         break;
     }
+    console.log("Line 96 firing")
     this.fileUpload(file)
 
 
@@ -104,12 +105,17 @@ export class InputFormComponent implements OnInit {
    *
    **/
   fileUpload(file) {
+    console.log("Here file is: ")
     console.log(file)
 
     const fileAPI = `http://localhost:5000/files/`;
     const body = file;
+    // const body = {"data": {"file": file}};
+    var formData = new FormData()
+    formData.append("file", file)
 
-    this.formSubscription = this.mainService.filePost(fileAPI, body)
+
+    this.formSubscription = this.mainService.filePost(fileAPI, formData)
     .subscribe(response => {
       console.log(response)
       // this.router.navigate(['/review']);
