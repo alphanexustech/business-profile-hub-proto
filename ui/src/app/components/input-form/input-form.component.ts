@@ -24,6 +24,8 @@ interface FileObject {
 })
 
 export class InputFormComponent implements OnInit {
+  fileName = ''
+
   inputForm: FormGroup;
 
   assets: Assets = {
@@ -71,33 +73,33 @@ export class InputFormComponent implements OnInit {
     // console.log(this.inputForm);
   }
 
-  onFileSelected(fileKey, event) {
-    const selectedFile = <File>event.target.files[0];
-    const file = {
-      type: "image", 
-      file: selectedFile,
-      fileName: selectedFile.name
-    }
+  // onFileSelected(fileKey, event) {
+  //   const selectedFile = <File>event.target.files[0];
+  //   const file = {
+  //     type: "image", 
+  //     file: selectedFile,
+  //     fileName: selectedFile.name
+  //   }
 
-    // IDEA: Manage the condition in a less hack way
-    const fileCat = fileKey[0];
-    switch (fileCat) {
-      // Image Files
-      case 'f':
-        this.assets.files[fileKey] = file;
-        break;
-      // Logo Files
-      case 'l':
-        this.assets.logos[fileKey] = file;
-        break;
-      default:
-        break;
-    }
-    console.log("Line 96 firing")
-    this.fileUpload(file)
+  //   // IDEA: Manage the condition in a less hack way
+  //   const fileCat = fileKey[0];
+  //   switch (fileCat) {
+  //     // Image Files
+  //     case 'f':
+  //       this.assets.files[fileKey] = file;
+  //       break;
+  //     // Logo Files
+  //     case 'l':
+  //       this.assets.logos[fileKey] = file;
+  //       break;
+  //     default:
+  //       break;
+  //   }
+  //   console.log("Line 96 firing")
+  //   this.fileUpload(file)
 
 
-  }
+  // }
 
   /*
    *
@@ -133,5 +135,31 @@ export class InputFormComponent implements OnInit {
   //     console.log(event);
   //   });
   
+  }
+
+
+
+
+
+
+  onFileSelected(key, event) {
+
+    const file:File = event.target.files[0];
+
+    if (file) {
+        console.log(file)
+
+        this.fileName = file.name;
+
+        const formData = new FormData();
+
+        formData.append("thumbnail", file);
+
+        const fileAPI = `http://localhost:5000/files/`;
+        const upload$ = this.mainService.filePost(fileAPI, formData);
+
+        upload$.subscribe();
+    }
+
   }
 }   
