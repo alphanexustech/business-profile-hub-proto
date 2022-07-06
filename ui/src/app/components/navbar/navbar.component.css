@@ -4,6 +4,15 @@
 
 .royalnexuslogo {
     display: flex;
-    width: 18%;
-    height: 85%;
+    width: 23.5rem;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -2.3rem;
+    margin-bottom: 0.2rem;
+}
+
+.background {  
+    background-color: white;
 }
