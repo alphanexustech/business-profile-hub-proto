@@ -1,41 +1,93 @@
 <div class="background">
-    <mat-drawer-container autosize>
-      <mat-drawer #drawer class="sidebar" mode="side" mode="side">
+    <mat-sidenav-container autosize>
+      <mat-sidenav #drawer [fixedInViewport]="false" class="sidebar" opened mode="side" mode="side">
         
-        <div class="margintop">
-            <button mat-button [routerLink]="['/input']">Getting Started!</button>
-        </div>
-    
-        <div class="margintop">
-            <button mat-button [routerLink]="['/choose-layout']">Choose Layout</button>
-        </div>
-    
-        <div class="margintop">
-            <button mat-button [routerLink]="['/output-landing']">Finish</button>
-        </div>  
-
-        <div class="margintop">
-          <button mat-button [routerLink]="['/settings']">Settings</button>
-      </div>
-
-        <div class="margintop">
-            <button mat-button [routerLink]="['/logout']">Logout</button>
+        <div class="side-nav_toggle">
+          <button class="" type="button" mat-button (click)="drawer.toggle()">
+            <mat-icon aria-hidden="false" aria-label="Example home icon">
+              first_page
+            </mat-icon>
+            Close Sidebar
+          </button>
         </div>
 
-      </mat-drawer>
+        <div class="side-nav_items">
+          <div>
+              <button mat-button [routerLink]="['/input']">Getting Started!</button>
+          </div>
       
-      <div class="home-icon">
-        <button type="button" mat-button (click)="drawer.toggle()">
-          <mat-icon aria-hidden="false" aria-label="Example home icon">menu_open</mat-icon>
-        </button> 
-      </div>  
+          <div>
+              <button mat-button [routerLink]="['/choose-layout']">Choose Layouts</button>
+          </div>
+      
+          <div>
+              <button mat-button [routerLink]="['/output-landing']">Preview</button>
+          </div>  
+          <div>
+              <button mat-button [routerLink]="['/output-landing']">Confirm</button>
+          </div>  
+          <!-- 
+          <div>
+            <button mat-button [routerLink]="['/settings']">Settings</button>
+          </div>
+          
+          <div>
+            <button mat-button [routerLink]="['/logout']">Logout</button>
+          </div>
+           -->
+        </div>
+          
+      </mat-sidenav>
+      
+      <div *ngIf="!drawer.opened" class="side-nav">
+        <div class="side-nav_toggle">
+          <button class="" type="button" mat-button (click)="drawer.toggle()">
+            <mat-icon aria-hidden="false" aria-label="Example home icon">
+              menu_open
+            </mat-icon>
+          </button>
+        </div>
 
-      <div>
-        <img class="royalnexuslogo" src="https://i.imgur.com/TOnjmRT.png">
+        <div class="side-nav_items_icons">
+          <div>
+              <button mat-button title="Confirm" title="Getting Started" [routerLink]="['/input']">
+                <mat-icon aria-hidden="false" aria-label="Example home icon">
+                  start
+                </mat-icon>
+              </button>
+          </div>
+      
+          <div>
+              <button class="mobile_friendly_button" mat-button title="Choose Layouts" [routerLink]="['/choose-layout']">
+                <mat-icon aria-hidden="false" aria-label="Example home icon">
+                  mobile_friendly
+                </mat-icon>
+              </button>
+          </div>
+      
+          <div>
+              <button mat-button title="Preview" [routerLink]="['/output-landing']">
+                <mat-icon aria-hidden="false" aria-label="Example home icon">
+                  visibility
+                </mat-icon>
+              </button>
+          </div>
+          <div>
+              <button mat-button title="Confirm" [routerLink]="['/confirm']">
+                <mat-icon aria-hidden="false" aria-label="Example home icon">
+                  recommend
+                </mat-icon>
+              </button>
+          </div>
+        </div>
+      </div>  
+      
+      <app-navbar></app-navbar>
+
+      <div class="focus">
+        <router-outlet></router-outlet>
       </div>
 
-      <router-outlet></router-outlet>
-
-    </mat-drawer-container>
+    </mat-sidenav-container>
 
   </div>

@@ -4,33 +4,41 @@
     flex-direction: column;
 }
 
-.margintop {
-    margin-top: 1rem;
+.mobile_friendly_button {
+    padding-left: 12px;
 }
 
-.home-icon {
-    background-color: transparent;
-    width: 3rem;
-    height: 3rem;
-    transform: scale(1.5);
+.side-nav {
+    width: 4rem;
+    height: 100%;
     color: #174273;
-    margin-bottom: -4rem;
-    padding-top: 2.5rem;
-    margin-top: -2.5rem;
+    background-color: #FFF;
+    border-right: 1px solid #174273;
+    position: fixed;
+    z-index: 2;
+    /* Align icons to the center */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.royalnexuslogo {
+.side-nav_toggle {
+    height: 3rem;
     display: flex;
-    width: 15rem;
     justify-content: center;
     align-items: center;
-    margin-left: auto;
-    margin-right: auto;
+}
+
+.side-nav_toggle > button,
+.side-nav_items > div > button {
+    width: 9.5rem;
+}
+
+.side-nav_items > div,
+.side-nav_items_icons > div {
     margin-top: 1rem;
 }
 
-@media only screen and (max-width: 600px) {
-    .royalnexuslogo {
-        width: 15rem;
-    }
+.focus {
+    overflow: auto;
 }
