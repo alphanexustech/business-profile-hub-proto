@@ -1,5 +1,4 @@
 .wrapper {
-    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,5 +49,10 @@
     .mat-card {
         width: 6rem;
         height: 6rem;
+    }
+
+    .wrapper {
+        margin-top: 3rem;
+        margin-bottom: 3rem;
     }
 }

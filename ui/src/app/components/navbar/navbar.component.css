@@ -7,3 +7,10 @@
 .royalnexuslogo > img {
     height: 3rem;
 }
+
+
+@media (max-width: 600px) {
+    .royalnexuslogo {
+        padding-left: 4rem;
+    }
+}

@@ -10,6 +10,14 @@
 
 .side-nav {
     width: 4rem;
+}
+
+.side-nav-full {
+    width: 9.5rem;
+}
+
+.side-nav,
+.side-nav-full {
     height: 100%;
     color: #174273;
     background-color: #FFF;
@@ -39,6 +47,31 @@
     margin-top: 1rem;
 }
 
+.side-nav.inactive,
+.side-nav-full.inactive {
+    display: none;
+}
+
 .focus {
-    overflow: auto;
+    overflow-x: auto;
+}
+
+.fullscreen-toggle {
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    z-index: 3;
+    height: 3rem;
+    width: 3rem;
+    
+}
+
+@media (max-width: 600px) {
+    .focus {
+        padding-left: 4rem;
+    }
+
+    .focus.fullscreen {
+        padding-left: 0rem;
+    }
 }
