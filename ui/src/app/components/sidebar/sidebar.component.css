@@ -54,7 +54,7 @@
 
 .focus {
     overflow: auto;
-    height: calc(100vh - 3rem);
+    height: calc(100vh - 3rem - 1px);
     padding-left: 4rem;
 }
 

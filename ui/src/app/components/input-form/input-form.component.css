@@ -1,3 +1,4 @@
+/* IDEA: Consider refactoring reusable CSS into more global CSS */
 .backgroundimage {
   background-image: url("https://www.travellens.co/content/images/2022/02/Front-Royal.jpg");
   object-fit: contain;
@@ -14,6 +15,16 @@
 .mat-card {
   margin-top: 2rem;
   padding: 1rem;
+}
+
+.button_group-flex-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button_group-space-between {
+  display: flex;
+  justify-content: space-between;
 }
 
 .wrapper {
@@ -64,75 +75,6 @@ h1, h4 {
 
 .suffix-input {
   width: 8rem;
-}
-
-.logoinput {
-  flex-direction: row;
-  display: flex;
-  margin-left: 5rem;
-}
-
-.logocheckmark {
-  display: flex;
-  align-items: center;
-  margin-left: 5rem;
-}
-
-.imageinput {
-  flex-direction: row;
-  display: flex;
-  margin-left: 5rem;
-}
-
-.imagecheckmark {
-  display: flex;
-  align-items: center;
-  margin-left: 5rem;
-}
-
-.imagetextheader {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: small;
-  margin-bottom: 0.5rem;
-  margin-left: 5rem;
-}
-
-.imagetextdivider {
-  margin-top: 1rem;
-  margin-left: 5rem;
-}
-
-.applybutton {
-  flex-direction: column;
-  justify-content: center;
-  display: flex;
-  margin-bottom: 6rem;
-  margin-top: 1rem;
-  margin-left: 5rem;
-}
-
-.applybuttondivider {
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-  margin-left: 5rem;
-}
-
-.imagetextbox {
-  flex-direction: column;
-  justify-content: center;
-  display: flex;
-  width: 18rem;
-  margin-bottom: 0rem;
-  margin-top: 0rem;
-  margin-left: 5rem;
-}
-
-.imagetextheader2 {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: small;
-  margin-bottom: 0.5rem;
-  margin-top:-1rem;
-  margin-left: 5rem;
 }
 
 @media (max-width: 600px) {

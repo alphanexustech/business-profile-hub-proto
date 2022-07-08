@@ -3,6 +3,7 @@
     justify-content: center;
     align-items: center;
     padding-left: 4rem;
+    border-bottom: 1px solid #174273;
 }
 
 .royalnexuslogo > img {

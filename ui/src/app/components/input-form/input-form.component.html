@@ -37,7 +37,7 @@
         </div>  
 
         <h1>What's the business called?</h1>
-        <h4 class="microcopy">We'll include the business info on your website, of course.</h4>
+        <h4 class="microcopy">We'll include the business info on your website, of course</h4>
 
         <div>
         </div>
@@ -54,6 +54,7 @@
             <mat-label>Email:</mat-label>
             <input type="email" formControlName="businessemail" matInput required>
           </mat-form-field>
+          <div class="helpcopy">We never spam our team. Hope you join us</div>
         </div>  
 
         <div class="input">
@@ -91,44 +92,33 @@
           </mat-form-field>
         </div>
 
-        <div class="applybutton">
-          <button mat-button type="submit" (click)="onSubmit()">Submit!</button>
+        <div class="button_group-flex-end">
+          <button mat-stroked-button color="primary" type="submit" (click)="uploadData('info', 'logo')">Next</button>
         </div>
-
+        
       </mat-card>
       <mat-card>
-        <div>
-          <h1>Upload your logo and images!</h1>
-        </div>
-
-        <div>
-          <h3 class="microcopy">Upload your main logo here.</h3>
-        </div>
-
-        <!-- IDEA: Make an input component to follow DRY -->
-
+        <h1>Upload your main logo</h1>
+        
         <div class="logoinput">
           <input style="display: none" type="file" (change)="onFileSelected('logo1', $event)" #logo1Input>
-          <!-- *** ^ TWEAK v *** -->
           <button mat-button (click)="logo1Input.click()">Upload Logo</button>
-          <!-- <button type="button" (click)="onUpload()">Upload</button> -->
           <div *ngIf="assets.logos.hasOwnProperty('logo1')" class="logocheckmark"><mat-icon>done_outline</mat-icon></div>
         </div> 
 
-        <div>
-          <h1 class="imagetextheader">Choose  up to five images to upload.</h1>
-        </div> 
-
-        <div>
-          <h1 class="imagetextheader2">Descriptions are optional!</h1>
+        <div class="button_group-space-between">
+          <button mat-stroked-button type="submit" (click)="switchForm('info')">Back</button>
+          <button mat-stroked-button color="primary" type="submit" (click)="uploadData('info', 'logo')">Next</button>
         </div>
-        
+      </mat-card>
+      <mat-card>
+        <h1>Pick a few great pics</h1>
+        <h4 class="microcopy">Choose  up to five images to upload. We'll showcase your business with the pictures you choose!</h4>
+
         <div>
           <div class="imageinput">
             <input style="display: none" type="file" (change)="onFileSelected('file1', $event)" #file1Input>
-            <!-- *** ^ TWEAK v *** -->
             <button mat-button (click)="file1Input.click()">Upload Image #1</button>
-            <!-- <button type="button" (click)="onUpload()">Upload</button> -->
             <div *ngIf="assets.files.hasOwnProperty('file1')" class="imagecheckmark"><mat-icon>done_outline</mat-icon> </div>
           </div> 
 
@@ -144,9 +134,7 @@
         <div *ngIf="assets.files.hasOwnProperty('file1')">
           <div class="imageinput">
             <input style="display: none" type="file" (change)="onFileSelected('file2', $event)" #file2Input>
-            <!-- *** ^ TWEAK v *** -->
             <button mat-button (click)="file2Input.click()">Upload Image #2</button>
-            <!-- <button type="button" (click)="onUpload()">Upload</button> -->
             <div *ngIf="assets.files.hasOwnProperty('file2')" class="imagecheckmark"><mat-icon>done_outline</mat-icon></div>
           </div> 
 
@@ -161,9 +149,7 @@
         <div *ngIf="assets.files.hasOwnProperty('file2')">
           <div class="imageinput">
             <input style="display: none" type="file" (change)="onFileSelected('file3', $event)" #file3Input>
-            <!-- *** ^ TWEAK v *** -->
             <button mat-button (click)="file3Input.click()">Upload Image #3</button>
-            <!-- <button type="button" (click)="onUpload()">Upload</button> -->
             <div *ngIf="assets.files.hasOwnProperty('file3')" class="imagecheckmark"><mat-icon>done_outline</mat-icon></div>
           </div> 
 
@@ -178,9 +164,7 @@
         <div *ngIf="assets.files.hasOwnProperty('file3')">
           <div class="imageinput">
             <input style="display: none" type="file" (change)="onFileSelected('file4', $event)" #file4Input>
-            <!-- *** ^ TWEAK v *** -->
             <button mat-button (click)="file4Input.click()">Upload Image #4</button>
-            <!-- <button type="button" (click)="onUpload()">Upload</button> -->
             <div *ngIf="assets.files.hasOwnProperty('file4')" class="imagecheckmark"><mat-icon>done_outline</mat-icon></div>
           </div> 
 
@@ -195,9 +179,7 @@
         <div *ngIf="assets.files.hasOwnProperty('file4')">
           <div class="imageinput">
             <input style="display: none" type="file" (change)="onFileSelected('file5', $event)" #file5Input>
-            <!-- *** ^ TWEAK v *** -->
             <button mat-button (click)="file5Input.click()">Upload Image #5</button>
-            <!-- <button type="button" (click)="onUpload()">Upload</button> -->
             <div *ngIf="assets.files.hasOwnProperty('file5')" class="imagecheckmark"><mat-icon>done_outline</mat-icon></div>
           </div> 
 
@@ -207,7 +189,12 @@
               <textarea matInput formControlName="image5text"></textarea>
             </mat-form-field>
           </div> 
-        </div>  
+        </div>
+
+        <div class="button_group-space-between">
+          <button mat-stroked-button type="submit" (click)="switchForm('logo')">Back</button>
+          <button mat-stroked-button color="primary" type="submit" (click)="uploadData('image', 'logo')">Choose Layouts</button>
+        </div>
 
       </mat-card>
         

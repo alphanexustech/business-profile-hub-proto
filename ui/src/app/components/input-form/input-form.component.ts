@@ -5,6 +5,7 @@ import { HttpClient, HttpEventType } from '@angular/common/http';
 import { MainService } from '../../services/main.service';
 import { AuthService } from '../../services/auth.service';
 import { Subscription } from 'rxjs';
+import { Action } from 'rxjs/internal/scheduler/Action';
 
 interface Assets {
   "logos": {};
@@ -25,6 +26,7 @@ interface FileObject {
 
 export class InputFormComponent implements OnInit {
   fileName = ''
+  activeForm = 'info'
 
   inputForm: FormGroup;
 
@@ -69,10 +71,29 @@ export class InputFormComponent implements OnInit {
       })
   }
   
-  onSubmit(): void {
-    // console.log(this.inputForm);
+  switchForm(activeForm): void {
+    this.activeForm = activeForm
   }
 
+  uploadData(currentForm, activeForm) {
+    switch (currentForm) {
+      case 'info':
+        // IDEA: Input Form as JSON file
+        console.log(this.inputForm);
+        break;
+        case 'logo':
+        // IDEA: Logo as file
+        break;
+        case 'image':
+        // IDEA: Images as files
+        break;
+      default:
+        break;
+    }
+
+    this.switchForm(activeForm)
+  }
+  
   // onFileSelected(fileKey, event) {
   //   const selectedFile = <File>event.target.files[0];
   //   const file = {
