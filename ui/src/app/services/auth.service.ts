@@ -51,7 +51,7 @@ export class AuthService implements OnInit, OnDestroy {
 
   getBaseHeaders(): HttpHeaders {
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
+      // 'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*'
     });
     return headers;
