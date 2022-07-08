@@ -176,7 +176,7 @@ export class InputFormComponent implements OnInit {
 
         const formData = new FormData();
 
-        formData.append("thumbnail", file);
+        formData.append(file.name, file);
 
         const fileAPI = `http://localhost:5000/files/`;
         const upload$ = this.mainService.filePost(fileAPI, formData);
