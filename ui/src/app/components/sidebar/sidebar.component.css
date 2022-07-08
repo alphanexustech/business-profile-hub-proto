@@ -53,7 +53,14 @@
 }
 
 .focus {
-    overflow-x: auto;
+    overflow: auto;
+    height: calc(100vh - 3rem);
+    padding-left: 4rem;
+}
+
+.focus.fullscreen {
+    height: 100vh;
+    padding-left: 0rem;
 }
 
 .fullscreen-toggle {
