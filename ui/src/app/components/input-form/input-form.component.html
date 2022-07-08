@@ -3,7 +3,7 @@
 <form [formGroup]="inputForm">  
   <div class="wrapper">
     <div class="formfields">
-      <mat-card>
+      <mat-card *ngIf="activeForm === 'info'">
         <h1>Let's Get Started</h1>
         <h4 class="microcopy">We'll use your data to make your custom website - fast! With a bit of info, we'll get you rollin'!</h4>
         <div class="helpcopy">Asterisks (*) indicate required fields.</div>
@@ -107,8 +107,8 @@
         </div> 
 
         <div class="button_group-space-between">
-          <button mat-stroked-button type="submit" (click)="switchForm('info')">Back</button>
-          <button mat-stroked-button color="primary" type="submit" (click)="uploadData('info', 'logo')">Next</button>
+          <button mat-stroked-button (click)="switchForm('info')">Back</button>
+          <button mat-stroked-button color="primary" (click)="uploadData('info', 'logo')">Next</button>
         </div>
       </mat-card>
       <mat-card>
@@ -192,8 +192,8 @@
         </div>
 
         <div class="button_group-space-between">
-          <button mat-stroked-button type="submit" (click)="switchForm('logo')">Back</button>
-          <button mat-stroked-button color="primary" type="submit" (click)="uploadData('image', 'logo')">Choose Layouts</button>
+          <button mat-stroked-button (click)="switchForm('logo')">Back</button>
+          <button mat-stroked-button color="primary" (click)="uploadData('image', 'logo')">Choose Layouts</button>
         </div>
 
       </mat-card>
