@@ -15,7 +15,9 @@ def save_file(file):
 
 def get_file(file_name):
     print("controllers ln 17 file_name:", file_name)
-    return flask.send_from_directory(STORAGE_ROOT, file_name)
+    # return flask.send_file(STORAGE_ROOT + file_name)
+    # IDEA: FUN FACT: flask functions are relative to '/app', while python functions are relative to the file they're in!
+    return flask.send_from_directory("../" + STORAGE_ROOT, file_name)
 
 def get_files(file_names):
     files = []

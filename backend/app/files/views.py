@@ -27,7 +27,7 @@ def get_file(file_name=None):
     # query = {}
     print("ln 28 filename:", file_name)
     file_name = file_name
-    return jsonify(controllers.get_file(file_name))
+    return controllers.get_file(file_name)
 
 def allowed_file(filename):
     return '.' in filename and \
