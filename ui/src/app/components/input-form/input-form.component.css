@@ -15,6 +15,7 @@
 .mat-card {
   margin-top: 2rem;
   padding: 1rem;
+  width: 28rem;
 }
 
 .button_group-flex-end {
@@ -39,9 +40,10 @@
 }
 
 .formfields {
-  justify-content: space-around;
+  justify-content: center;
   flex-direction: column;
   display: flex;
+  margin-bottom: 2rem;
 }
 
 h1 {
@@ -54,7 +56,8 @@ h1, h4 {
 }
 
 .microcopy {
-  max-width: 26rem;
+  max-width: 22rem;
+  padding: 0rem 2rem;
   line-height: 1.25rem;
   font-size: 1rem;
 }
@@ -80,5 +83,9 @@ h1, h4 {
 @media (max-width: 600px) {
   .mat-card {
     max-width: 14rem;
+  }
+
+  .microcopy {
+    padding: 0rem;
   }
 }
