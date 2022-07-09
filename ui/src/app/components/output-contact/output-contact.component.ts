@@ -4,6 +4,7 @@ import { FormArray, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MainService } from '../../services/main.service';
 import { AuthService } from '../../services/auth.service';
 import { Subscription } from 'rxjs';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-output-contact',
@@ -11,6 +12,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./output-contact.component.css']
 })
 export class OutputContactComponent implements OnInit {
+  userInput: any;
   businessName: string;
   contactForm: FormGroup;
 
@@ -21,6 +23,7 @@ export class OutputContactComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private mainService: MainService,
+    private userService: UserService,
   ) { }
 
   formSubscription: Subscription = new Subscription;
@@ -28,15 +31,18 @@ export class OutputContactComponent implements OnInit {
   ngOnInit(): void {
     this.initializeForm();
 
+    this.userService.getUserData()
+    .subscribe(userData => {
+        this.userInput = userData?.userInput
+        this.businessName = this.userInput?.businessname;
+    })
+
     // IDEA: Rewrite this to be follow DRY
     const selectedLayouts = JSON.parse(sessionStorage["selectedLayouts"]);
 
     this.landingExists = selectedLayouts.includes('landing');
     this.aboutExists = selectedLayouts.includes('about');
     this.contactExists = selectedLayouts.includes('contact');
-    
-    // IDEA: Change to a place on our server
-    this.businessName = "Alpha Nexus Technolgies LLC"
   }
 
   ngOnDestroy() {

@@ -3,6 +3,9 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
+    margin-top: 3rem;
+    margin-bottom: 3rem;
 }
 
 .options-heading {
@@ -47,12 +50,7 @@
     }
 
     .mat-card {
-        width: 6rem;
+        width: 12rem;
         height: 6rem;
-    }
-
-    .wrapper {
-        margin-top: 3rem;
-        margin-bottom: 3rem;
     }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { stringify } from 'querystring';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-options',
@@ -11,10 +11,13 @@ import { stringify } from 'querystring';
 export class OptionsComponent implements OnInit {
   selectedOptions: {};
   errorMessage: string;
+  userInput: any;
+  businessName: string;
 
   constructor(
     private router: Router,
     private _snackBar: MatSnackBar,
+    private userService: UserService,
   ) { }
 
   ngOnInit(): void {
@@ -23,6 +26,13 @@ export class OptionsComponent implements OnInit {
       "about": false,
       "contact": false
     };
+
+    this.userService.getUserData()
+      .subscribe(userData => {
+          this.userInput = userData?.userInput
+          this.businessName = this.userInput?.businessname;
+      })
+
   }
 
   checkSelected(key) {
@@ -39,7 +49,7 @@ export class OptionsComponent implements OnInit {
         selectedLayouts.push(key)
       }
     }
-    // IDEA: Make this into a service
+    // IDEA: Include this into userService
     sessionStorage.setItem("selectedLayouts", JSON.stringify(selectedLayouts));
   }
 

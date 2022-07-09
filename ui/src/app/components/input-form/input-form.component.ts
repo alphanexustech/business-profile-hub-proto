@@ -4,8 +4,9 @@ import { FormArray, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MainService } from '../../services/main.service';
 import { Subscription } from 'rxjs';
 
-import {DomSanitizer} from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 interface Assets {
   "logos": {};
@@ -32,6 +33,7 @@ export class InputFormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private mainService: MainService,
+    private userService: UserService,
     private sanitizer: DomSanitizer,
     private router: Router,
   ) { }
@@ -57,11 +59,12 @@ export class InputFormComponent implements OnInit {
       businessaddressline2: '',
       city: '',
       zip: '',
-      image1text: '',
-      image2text: '',
-      image3text: '',
-      image4text: '',
-      image5text: '',
+      logo1text: '',
+      file1text: '',
+      file2text: '',
+      file3text: '',
+      file4text: '',
+      file5text: '',
       })
   }
   
@@ -70,11 +73,10 @@ export class InputFormComponent implements OnInit {
   }
 
   uploadData(currentForm, activeForm) {
-    console.log(currentForm)
     switch (currentForm) {
       case 'info':
         // IDEA: Input Form as JSON file
-        console.log(this.inputForm);
+        // console.log(this.inputForm);
         break;
       case 'logo':
         // IDEA: Logo as file
@@ -88,6 +90,10 @@ export class InputFormComponent implements OnInit {
 
     if (activeForm === 'final') {
       // IDEA: Redirect
+      this.userService.updateUserData({
+        assets: this.assets,
+        userInput: this.inputForm.value,
+      })
       this.router.navigate(['/choose-layout']);
     } else {
       this.switchForm(activeForm)
@@ -117,6 +123,7 @@ export class InputFormComponent implements OnInit {
     }
   }
 
+  // IDEA: Find all instances and include in helperService (create it if it doesn't exist)
   parseFileToUrl(file) {
     if (file) {
       let objectURL = window.URL.createObjectURL(file)

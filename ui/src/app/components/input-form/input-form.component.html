@@ -110,6 +110,13 @@
           <img [src]=parseFileToUrl(assets.logos.logo1) />
         </div>
 
+        <div class="input">
+          <mat-form-field class="example-full-width">
+            <mat-label>How does your business truly shine?</mat-label>
+            <textarea matInput formControlName="logo1text"></textarea>
+          </mat-form-field>
+        </div> 
+
         <div class="button_group-space-between">
           <button mat-stroked-button (click)="switchForm('info')">Back</button>
           <button mat-stroked-button color="primary" (click)="uploadData('logo', 'image')">Next</button>
@@ -134,7 +141,7 @@
           <div class="input">
             <mat-form-field class="example-full-width">
               <mat-label>Describe your image here!</mat-label>
-              <textarea matInput formControlName="image1text"></textarea>
+              <textarea matInput formControlName="file1text"></textarea>
             </mat-form-field>
           </div> 
         </div>
@@ -153,7 +160,7 @@
           <div class="input">
             <mat-form-field class="example-full-width">
               <mat-label>How about this image?</mat-label>
-              <textarea matInput formControlName="image2text"></textarea>
+              <textarea matInput formControlName="file2text"></textarea>
             </mat-form-field>
           </div> 
         </div> 
@@ -172,7 +179,7 @@
           <div class="input">
             <mat-form-field class="example-full-width">
               <mat-label>Lucky number three!</mat-label>
-              <textarea matInput formControlName="image3text"></textarea>
+              <textarea matInput formControlName="file3text"></textarea>
             </mat-form-field>
           </div> 
         </div>
@@ -191,7 +198,7 @@
           <div class="input">
             <mat-form-field class="example-full-width">
               <mat-label>What about this one?</mat-label>
-              <textarea matInput formControlName="image4text"></textarea>
+              <textarea matInput formControlName="file4text"></textarea>
             </mat-form-field>
           </div>
         </div> 
@@ -210,7 +217,7 @@
           <div class="input">
             <mat-form-field class="example-full-width">
               <mat-label>Any words of wisdom?</mat-label>
-              <textarea matInput formControlName="image5text"></textarea>
+              <textarea matInput formControlName="file5text"></textarea>
             </mat-form-field>
           </div> 
         </div>

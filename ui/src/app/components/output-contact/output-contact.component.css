@@ -5,6 +5,7 @@
 .wrapper {
     display: flex;
     justify-content: center;
+    margin-top: 3rem;
   }
   
   .formfields {
@@ -57,5 +58,14 @@
   .applybuttondivider {
     margin-bottom: 1rem;
     margin-top: 1rem;
+  }
+
+  .confirm-button {
+      position: fixed;
+      right: 0.5rem;
+      bottom: 0.25rem;
+      z-index: 3;
+      height: 3rem;
+      width: 3rem;
   }
   

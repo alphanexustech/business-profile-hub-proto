@@ -22,11 +22,42 @@
     align-items: center;
 }
 
-.about-row-image > img {
-    max-height: 16rem;
-    max-width: 16rem;
-}
-
 .output-button-nav > button {
     margin-left: 1rem;
+}
+
+.imagePreview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.imagePreview > img {
+    max-width: 28rem;
+    max-height: 20rem;
+}
+
+.confirm-button {
+    position: fixed;
+    right: 0.5rem;
+    bottom: 0.25rem;
+    z-index: 3;
+    height: 3rem;
+    width: 3rem;
+}
+
+@media (max-width: 600px) {
+    .about-row {
+        flex-direction: column;
+    }
+
+    .about-row-image > img {
+        padding: 2rem 0rem 2rem 0rem;
+    }
+
+    .imagePreview > img {
+      max-width: 14rem;
+      max-height: 20rem;
+    }
 }
