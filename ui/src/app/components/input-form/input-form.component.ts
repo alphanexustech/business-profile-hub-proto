@@ -5,6 +5,7 @@ import { MainService } from '../../services/main.service';
 import { Subscription } from 'rxjs';
 
 import {DomSanitizer} from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 interface Assets {
   "logos": {};
@@ -20,8 +21,6 @@ interface Assets {
 export class InputFormComponent implements OnInit {
   fileName = ''
   activeForm = 'info'
-  imageSrc: any;
-
   inputForm: FormGroup;
 
   assets: Assets = {
@@ -34,6 +33,7 @@ export class InputFormComponent implements OnInit {
     private fb: FormBuilder,
     private mainService: MainService,
     private sanitizer: DomSanitizer,
+    private router: Router,
   ) { }
   
   
@@ -70,42 +70,58 @@ export class InputFormComponent implements OnInit {
   }
 
   uploadData(currentForm, activeForm) {
+    console.log(currentForm)
     switch (currentForm) {
       case 'info':
         // IDEA: Input Form as JSON file
         console.log(this.inputForm);
         break;
-        case 'logo':
+      case 'logo':
         // IDEA: Logo as file
         break;
-        case 'image':
+      case 'image':
         // IDEA: Images as files
         break;
       default:
         break;
     }
 
-    this.switchForm(activeForm)
+    if (activeForm === 'final') {
+      // IDEA: Redirect
+      this.router.navigate(['/choose-layout']);
+    } else {
+      this.switchForm(activeForm)
+    }
   }
   
   onFileSelected(fileKey, event) {
     const file:File = event.target.files[0];
 
-    // IDEA: Manage the condition in a less hack way
-    const fileCat = fileKey[0];
-    switch (fileCat) {
-      // Image Files
-      case 'f':
-        this.assets.files[fileKey] = file;
-        break;
-      // Logo Files
-      case 'l':
-        this.assets.logos[fileKey] = file;
-        break;
-      default:
-        break;
+    if (file) {
+      // IDEA: Manage the condition in a less hack way
+      const fileCat = fileKey[0];
+      switch (fileCat) {
+        // Image Files
+        case 'f':
+          this.assets.files[fileKey] = file;
+          break;
+        // Logo Files
+        case 'l':
+          this.assets.logos[fileKey] = file;
+          break;
+        default:
+          break;
+      }
+
+      this.fileUpload(file)
     }
-    this.fileUpload(file)
+  }
+
+  parseFileToUrl(file) {
+    if (file) {
+      let objectURL = window.URL.createObjectURL(file)
+      return this.sanitizer.bypassSecurityTrustResourceUrl(objectURL)
+    }
   }
 
   /*
@@ -116,24 +132,6 @@ export class InputFormComponent implements OnInit {
   fileUpload(file) {
 
     if (file) {
-        console.log(file)
-      
-        let imageSrc;
-        var reader  = new FileReader();
-        // it's onload event and you forgot (parameters)
-        reader.onload = function(e)  {
-            // the result image data
-            imageSrc = e.target.result;
-
-            console.log(e.target.result)
-        }
-        // you have to declare the file loading
-        // reader.readAsDataURL(file);
-        let objectURL = window.URL.createObjectURL(file);
-        this.imageSrc =  this.sanitizer.bypassSecurityTrustResourceUrl(objectURL)
-
-        console.log(file)
-
         this.fileName = file.name;
 
         const formData = new FormData();
@@ -144,7 +142,6 @@ export class InputFormComponent implements OnInit {
         this.formSubscription = this.mainService.filePost(fileAPI, formData)
           .subscribe(response => {
             console.log(response)
-            // this.router.navigate(['/review']);
           }, err => {
             console.log(err)
           });

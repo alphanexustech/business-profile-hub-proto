@@ -80,6 +80,24 @@ h1, h4 {
   width: 8rem;
 }
 
+.imageinput {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagePreview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.imagePreview > img {
+  max-width: 28rem;
+  max-height: 20rem;
+}
+
 @media (max-width: 600px) {
   .mat-card {
     max-width: 14rem;
@@ -87,5 +105,10 @@ h1, h4 {
 
   .microcopy {
     padding: 0rem;
+  }
+
+  .imagePreview > img {
+    max-width: 14rem;
+    max-height: 20rem;
   }
 }

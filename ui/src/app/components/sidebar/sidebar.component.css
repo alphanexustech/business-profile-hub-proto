@@ -65,8 +65,8 @@
 
 .fullscreen-toggle {
     position: fixed;
-    right: 2rem;
-    bottom: 2rem;
+    left: 0.25rem;
+    bottom: 1rem;
     z-index: 3;
     height: 3rem;
     width: 3rem;
