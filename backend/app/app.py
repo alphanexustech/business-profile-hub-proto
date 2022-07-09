@@ -11,3 +11,10 @@ bcrypt = Bcrypt(app)
 @app.route('/')
 def home_page():
     return 'Omega Horizon'
+
+# POST - Upload a file and store it locally. 
+# @app.route('upload/')
+
+
+# GET - Retrieve a file.
+# @app.route('img/')

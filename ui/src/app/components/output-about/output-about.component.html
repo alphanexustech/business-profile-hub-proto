@@ -1,19 +1,32 @@
 <div>
-    <mat-toolbar color="secondary" style="display: flex; justify-content: flex-start;">
+    <mat-toolbar color="secondary" style="display: flex; justify-content: space-between;">
         <span>{{businessName}}</span>
-        <div class="output-button-nav">
-            <button *ngIf="landingExists" [routerLink]="['/output-landing']" mat-raised-button color="primary">Layout</button>
-            <button *ngIf="aboutExists" [routerLink]="['/output-about']" mat-raised-button color="primary">About</button>
-            <button *ngIf="contactExists" [routerLink]="['/output-contact']" mat-raised-button color="primary">Contact</button>
-        </div>
+
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>menu</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item *ngIf="landingExists" [routerLink]="['/output-landing']">
+                <mat-icon>home</mat-icon>
+                <span>Home</span>
+            </button>
+            <button mat-menu-item *ngIf="aboutExists" [routerLink]="['/output-about']">
+                <mat-icon>emoji_people</mat-icon>
+                <span>About</span>
+            </button>
+            <button mat-menu-item *ngIf="contactExists" [routerLink]="['/output-contact']">
+                <mat-icon>contact_support</mat-icon>
+                <span>Contact</span>
+            </button>
+          </mat-menu>
     </mat-toolbar>
 </div>
 <div class="about-container">
     <div *ngFor="let row of aboutRows; index as i;">
         <div class="about-rows">
             <div class="about-row" *ngIf="i % 2 == 0">
-                <div class="about-row-image">
-                    <img [src]="row.imgPath" />
+                <div class="about-row-image imagePreview">
+                    <img [src]="row.imgPath"/>
                 </div>
                 <div class="about-row-copy">
                     <app-basic-paragraph header="{{row.header}}" line="{{row.line}}"></app-basic-paragraph>
@@ -23,10 +36,18 @@
                 <div class="about-row-copy">
                     <app-basic-paragraph header="{{row.header}}" line="{{row.line}}"></app-basic-paragraph>
                 </div>
-                <div class="about-row-image">
-                    <img [src]="row.imgPath" />
+                <div class="about-row-image imagePreview">
+                    <img [src]="row.imgPath"/>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="confirm-button" [routerLink]="['/confirm']">
+        <button mat-mini-fab color="warn" title="Confirm" >
+            <mat-icon aria-hidden="false" aria-label="Confirm Nav Icon">
+                recommend 
+            </mat-icon>
+        </button>
     </div>
 </div>

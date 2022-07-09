@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { UserService } from 'src/app/services/user.service';
 
 interface AboutRow {
-  imgPath: string;
+  imgPath: any;
   header: string;
   line: string;
 }
@@ -13,6 +15,7 @@ interface AboutRow {
 })
 
 export class OutputAboutComponent implements OnInit {
+  userInput: any;
   businessName: string;
   aboutRows: AboutRow[];
 
@@ -20,10 +23,29 @@ export class OutputAboutComponent implements OnInit {
   aboutExists: boolean;
   contactExists: boolean;
 
-  constructor() { }
+  constructor(
+    private userService: UserService,
+    private sanitizer: DomSanitizer,
+  ) { }
 
   ngOnInit(): void {
     this.aboutRows = [];
+
+    this.userService.getUserData()
+      .subscribe(userData => {
+          this.userInput = userData?.userInput;
+          console.log(this.userInput)
+          this.businessName = this.userInput?.businessname;
+  
+          if (userData) {
+            this.aboutRows.push({
+              imgPath: this.parseFileToUrl(userData.assets.logos["logo1"]),
+              header: '',
+              line: this.userInput['logo1text']
+            })
+          }
+      })
+
     
     // IDEA: Rewrite this to be follow DRY
     const selectedLayouts = JSON.parse(sessionStorage["selectedLayouts"]);
@@ -32,19 +54,15 @@ export class OutputAboutComponent implements OnInit {
     this.aboutExists = selectedLayouts.includes('about');
     this.contactExists = selectedLayouts.includes('contact');
 
-    // MOCK
-    this.aboutRows.push({
-      imgPath: "assets/images/logo/antlogo-full.png",
-      header: "Our Story",
-      line: `
-        Our knowledge of building simple and clear user experiences allow us to follow best practices. We aim to rigorously adhere to the following process. We focus on optimizing how systems work which results in useful software for users.
-        We researched different solutions to JavaScript problems, and we found the following tools. These tools are now part of our process. ES6 Modules combined with this toolset allow us to write modern JavaScript.
-      `
-    })
 
-    // IDEA: Change to a place on our server
-    this.businessName = "Alpha Nexus Technolgies LLC"
 
+  }
+
+  parseFileToUrl(file) {
+    if (file) {
+      let objectURL = window.URL.createObjectURL(file)
+      return this.sanitizer.bypassSecurityTrustResourceUrl(objectURL)
+    }
   }
 
 }

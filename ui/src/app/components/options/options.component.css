@@ -1,9 +1,11 @@
 .wrapper {
-    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
+    margin-top: 3rem;
+    margin-bottom: 3rem;
 }
 
 .options-heading {
@@ -40,4 +42,15 @@
 
 .review-button {
     margin-top: 3rem;
+}
+
+@media (max-width: 600px) {
+    .layout-row {
+        flex-direction: column;
+    }
+
+    .mat-card {
+        width: 12rem;
+        height: 6rem;
+    }
 }
