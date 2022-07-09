@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { UserService } from 'src/app/services/user.service';
 
 
 interface LayoutRow {
-  imgPath: string;
+  imgPath: any;
   header: string;
   line: string;
 }
@@ -14,6 +16,7 @@ interface LayoutRow {
 })
 
 export class OutputLandingComponent implements OnInit {
+  userInput: any;
   businessName: string;
   layoutRows: LayoutRow[];
   
@@ -21,10 +24,27 @@ export class OutputLandingComponent implements OnInit {
   aboutExists: boolean;
   contactExists: boolean;
 
-  constructor() { }
+  constructor(
+    private userService: UserService,
+    private sanitizer: DomSanitizer,
+  ) { }
 
   ngOnInit(): void {
     this.layoutRows = [];
+    this.userService.getUserData()
+    .subscribe(userData => {
+        this.userInput = userData?.userInput
+        this.businessName = this.userInput?.businessname;
+
+        for (const _file in userData?.assets.files) {
+          this.layoutRows.push({
+            imgPath: this.parseFileToUrl(userData.assets.files[_file]),
+            header: '',
+            line: this.userInput[_file + 'text']
+          })
+        }
+    })
+
     
     // IDEA: Rewrite this to be follow DRY
     const selectedLayouts = JSON.parse(sessionStorage["selectedLayouts"]);
@@ -32,31 +52,13 @@ export class OutputLandingComponent implements OnInit {
     this.landingExists = selectedLayouts.includes('landing');
     this.aboutExists = selectedLayouts.includes('about');
     this.contactExists = selectedLayouts.includes('contact');
+  }
 
-    // MOCK
-    this.layoutRows.push({
-      imgPath: "assets/images/people/smiling-woman-wearing-silver-colored-stud-earrings-and-black-1197132.jpg",
-      header: "Advanced Product Development",
-      line: "At the nexus of complex systems lies the primary intersection of development and design. We navigate this exciting territory with repeatable techniques. We act as your guide and trusted advisor. Our services start at the design phase. Next, we traverse the landmarks of product design and development with you. We end our journey with complete products - fully bespoke and customized for your users."
-    })
-
-    this.layoutRows.push({
-      imgPath: "assets/images/people/man-holding-white-teacup-in-front-of-gray-laptop-842567.jpg",
-      header: '',
-      line: `
-        We think about complex problems frequently.
-        Our unique and diverse perspective is forged from experience with both commercial and government projects.
-        We build software components from the initial phases of conception to completion.
-        Our enhanced user interfaces meet modern standards while maintaining clear user experiences.
-        We provide 'top-notch' product development support to our clients.
-        In addition to improving code quality, visual aspects of software, and functionality of systems,
-        we build systems which actually work for their audience.
-      `
-    })
-
-    // IDEA: Change to a place on our server
-    this.businessName = "Alpha Nexus Technolgies LLC"
-
+  parseFileToUrl(file) {
+    if (file) {
+      let objectURL = window.URL.createObjectURL(file)
+      return this.sanitizer.bypassSecurityTrustResourceUrl(objectURL)
+    }
   }
 
 }

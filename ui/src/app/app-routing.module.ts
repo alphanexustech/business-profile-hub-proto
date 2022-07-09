@@ -7,6 +7,7 @@ import { OptionsComponent } from './components/options/options.component';
 import { OutputLandingComponent } from './components/output-landing/output-landing.component';
 import { OutputAboutComponent } from './components/output-about/output-about.component';
 import { OutputContactComponent } from './components/output-contact/output-contact.component';
+import { ConfirmPurchaseComponent } from './components/confirm-purchase/confirm-purchase.component';
 
 const routes: Routes = [
   // IDEA: Change back to LoginComponent for authentication
@@ -57,6 +58,13 @@ const routes: Routes = [
     component: OutputContactComponent,
     data: {
       header: 'Let\'s Finish!'
+    }
+  },
+  {
+    path: 'confirm',
+    component: ConfirmPurchaseComponent,
+    data: {
+      header: 'Approve Website Order'
     }
   },
   // IDEA: Change back to LoginComponent for authentication

@@ -1,41 +1,101 @@
-<div class="background">
-    <mat-drawer-container autosize>
-      <mat-drawer #drawer class="sidebar" mode="side" mode="side">
-        
-        <div class="margintop">
-            <button mat-button [routerLink]="['/input']">Getting Started!</button>
-        </div>
-    
-        <div class="margintop">
-            <button mat-button [routerLink]="['/choose-layout']">Choose Layout</button>
-        </div>
-    
-        <div class="margintop">
-            <button mat-button [routerLink]="['/output-landing']">Finish</button>
-        </div>  
+<div>
+  <div *ngIf="!fullscreen" [ngClass]="trayOpen ? 'active' : 'inactive'" class="side-nav-full">
+    <div class="side-nav_toggle">
+      <button class="" type="button" mat-button (click)="toggleTray()">
+        <mat-icon aria-hidden="false" aria-label="Close Sidebar Nav Icon">
+          first_page
+        </mat-icon>
+        Close Sidebar
+      </button>
+    </div>
 
-        <div class="margintop">
-          <button mat-button [routerLink]="['/settings']">Settings</button>
+    <div class="side-nav_items">
+      <div>
+          <button mat-button [routerLink]="['/input']">Getting Started!</button>
       </div>
-
-        <div class="margintop">
-            <button mat-button [routerLink]="['/logout']">Logout</button>
-        </div>
-
-      </mat-drawer>
-      
-      <div class="home-icon">
-        <button type="button" mat-button (click)="drawer.toggle()">
-          <mat-icon aria-hidden="false" aria-label="Example home icon">menu_open</mat-icon>
-        </button> 
-      </div>  
 
       <div>
-        <img class="royalnexuslogo" src="https://i.imgur.com/TOnjmRT.png">
+          <button mat-button [routerLink]="['/choose-layout']">Choose Layouts</button>
       </div>
 
-      <router-outlet></router-outlet>
-
-    </mat-drawer-container>
-
+      <div>
+          <button mat-button [routerLink]="['/output-landing']">Preview</button>
+      </div>  
+      <div>
+          <button mat-button [routerLink]="['/output-landing']">Confirm</button>
+      </div>  
+      <!-- 
+      <div>
+        <button mat-button [routerLink]="['/settings']">Settings</button>
+      </div>
+      
+      <div>
+        <button mat-button [routerLink]="['/logout']">Logout</button>
+      </div>
+      -->
+    </div>
   </div>
+
+  <div *ngIf="!fullscreen" [ngClass]="trayOpen ? 'inactive' : 'active'" class="side-nav">
+    <div class="side-nav_toggle">
+      <button class="" type="button" mat-button (click)="toggleTray()">
+        <mat-icon aria-hidden="false" aria-label="Open Sidebar Nav Icon">
+          menu_open
+        </mat-icon>
+      </button>
+    </div>
+
+    <div class="side-nav_items_icons">
+      <div>
+          <button mat-button title="Confirm" title="Getting Started" [routerLink]="['/input']">
+            <mat-icon aria-hidden="false" aria-label="Getting Started Nav Icon">
+              start
+            </mat-icon>
+          </button>
+      </div>
+  
+      <div>
+          <button class="mobile_friendly_button" mat-button title="Choose Layouts" [routerLink]="['/choose-layout']">
+            <mat-icon aria-hidden="false" aria-label="Choose Layouts Nav Icon">
+              mobile_friendly
+            </mat-icon>
+          </button>
+      </div>
+  
+      <div>
+          <button mat-button title="Preview" [routerLink]="['/output-landing']">
+            <mat-icon aria-hidden="false" aria-label="Preview Nav Icon">
+              visibility
+            </mat-icon>
+          </button>
+      </div>
+      <div>
+          <button mat-button title="Confirm" [routerLink]="['/confirm']">
+            <mat-icon aria-hidden="false" aria-label="Confirm Nav Icon">
+              recommend
+            </mat-icon>
+          </button>
+      </div>
+    </div>
+  </div>  
+  
+  <app-navbar *ngIf="!fullscreen"></app-navbar>
+
+  <div [ngClass]="fullscreen ? 'fullscreen' : ''" class="focus">
+    <router-outlet></router-outlet>
+  </div>
+
+  <div class="fullscreen-toggle">
+    <button *ngIf="fullscreen" mat-mini-fab color="primary" title="Fullscreen Exit" (click)="toggleFullscreen()">
+      <mat-icon aria-hidden="false" aria-label="Fullscreen Exit Nav Icon">
+        fullscreen_exit
+      </mat-icon>
+    </button>
+    <button *ngIf="!fullscreen" mat-mini-fab color="primary" title="Fullscreen" (click)="toggleFullscreen()">
+      <mat-icon aria-hidden="false" aria-label="Fullscreen Nav Icon">
+        fullscreen
+      </mat-icon>
+    </button>
+  </div>
+
+</div>

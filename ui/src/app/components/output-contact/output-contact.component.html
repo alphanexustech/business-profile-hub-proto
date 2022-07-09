@@ -1,88 +1,105 @@
 <div>
-    <mat-toolbar color="secondary" style="display: flex; justify-content: flex-start;">
-        <span>{{businessName}}</span>
-        <div class="output-button-nav">
-            <button *ngIf="landingExists" [routerLink]="['/output-landing']" mat-raised-button color="primary">Layout</button>
-            <button *ngIf="aboutExists" [routerLink]="['/output-about']" mat-raised-button color="primary">About</button>
-            <button *ngIf="contactExists" [routerLink]="['/output-contact']" mat-raised-button color="primary">Contact</button>
-        </div>
-    </mat-toolbar>
+  <mat-toolbar color="secondary" style="display: flex; justify-content: space-between;">
+      <span>{{businessName}}</span>
+
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item *ngIf="landingExists" [routerLink]="['/output-landing']">
+              <mat-icon>home</mat-icon>
+              <span>Home</span>
+          </button>
+          <button mat-menu-item *ngIf="aboutExists" [routerLink]="['/output-about']">
+              <mat-icon>emoji_people</mat-icon>
+              <span>About</span>
+          </button>
+          <button mat-menu-item *ngIf="contactExists" [routerLink]="['/output-contact']">
+              <mat-icon>contact_support</mat-icon>
+              <span>Contact</span>
+          </button>
+        </mat-menu>
+  </mat-toolbar>
 </div>
 <div class="landing-container">
     <div class="landing-rows">
         
-        <form [formGroup]="contactForm">  
-            <div class="wrapper">
-              <div class="formfields">
-                <div>
-                  <h1 class="header">Let's Get In Touch</h1>
-                </div>  
-            
-                <div class="divider">
-                  <mat-divider></mat-divider>
-                </div>
-            
-                <div>
-                  <h1 class="midheader">We can't wait to chat!</h1>
-                </div>
-            
-                <div>
-                  <h1 class="subheader">Asterisks (*) indicate required fields.</h1>
-                </div>
-            
-                <div class="input">
-                  <mat-form-field>
-                    <mat-label>First Name:</mat-label>
-                    <input type="text" formControlName="firstname" matInput required>
-                  </mat-form-field>
-                </div> 
-            
-                <div class="input">  
-                  <mat-form-field>
-                    <mat-label>Last Name:</mat-label>
-                    <input type="text" formControlName="lastname" matInput required>
-                  </mat-form-field>
-                </div>
-
-                <div class="input">
-                  <mat-form-field>
-                    <mat-label>Email:</mat-label>
-                    <input type="text" formControlName="email" matInput required>
-                  </mat-form-field>
-                </div> 
-            
-                <div class="input">
-                  <mat-form-field>
-                    <mat-label>Phone:</mat-label>
-                    <input type="text" formControlName="phone" matInput required>
-                  </mat-form-field>
-                </div>  
-            
-                <div class="input">
-                  <mat-form-field>
-                    <mat-label>Message:</mat-label>
-                    <input type="text" formControlName="message" matInput required>
-                  </mat-form-field>
-                </div>
-            
-                <div class="applybuttondivider">
-                  <mat-divider></mat-divider>
-                </div>
-                
-                <div class="applybutton">
-                  <button mat-button type="submit" (click)="onSubmit()">Let's Chat!</button>
-                </div>
-                
-                <div class="applybuttondivider">
-                  <mat-divider></mat-divider>
-                </div>
-                
+      <form [formGroup]="contactForm">  
+          <div class="wrapper">
+            <div class="formfields">
+              <div>
+                <h1 class="header">Let's Get In Touch</h1>
+              </div>  
+          
+              <div class="divider">
+                <mat-divider></mat-divider>
               </div>
-            </div>  
-            </form> -->
+          
+              <div>
+                <h1 class="midheader">We can't wait to chat!</h1>
+              </div>
+          
+              <div>
+                <h1 class="subheader">Asterisks (*) indicate required fields.</h1>
+              </div>
+          
+              <div class="input">
+                <mat-form-field>
+                  <mat-label>First Name:</mat-label>
+                  <input type="text" formControlName="firstname" matInput required>
+                </mat-form-field>
+              </div> 
+          
+              <div class="input">  
+                <mat-form-field>
+                  <mat-label>Last Name:</mat-label>
+                  <input type="text" formControlName="lastname" matInput required>
+                </mat-form-field>
+              </div>
 
-
-
-
+              <div class="input">
+                <mat-form-field>
+                  <mat-label>Email:</mat-label>
+                  <input type="text" formControlName="email" matInput required>
+                </mat-form-field>
+              </div> 
+          
+              <div class="input">
+                <mat-form-field>
+                  <mat-label>Phone:</mat-label>
+                  <input type="text" formControlName="phone" matInput required>
+                </mat-form-field>
+              </div>  
+          
+              <div class="input">
+                <mat-form-field>
+                  <mat-label>Message:</mat-label>
+                  <input type="text" formControlName="message" matInput required>
+                </mat-form-field>
+              </div>
+          
+              <div class="applybuttondivider">
+                <mat-divider></mat-divider>
+              </div>
+              
+              <div class="applybutton">
+                <button mat-button type="submit" (click)="onSubmit()">Let's Chat!</button>
+              </div>
+              
+              <div class="applybuttondivider">
+                <mat-divider></mat-divider>
+              </div>
+              
+            </div>
+          </div>  
+      </form>
     </div>
+
+    <div class="confirm-button" [routerLink]="['/confirm']">
+      <button mat-mini-fab color="warn" title="Confirm" >
+          <mat-icon aria-hidden="false" aria-label="Confirm Nav Icon">
+              recommend 
+          </mat-icon>
+      </button>
+  </div>
 </div>
