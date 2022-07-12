@@ -21,13 +21,17 @@ def get_files():
     file_names = [] 
     return jsonify(controllers.get_files(file_names))
 
-
 @files.route('/<file_name>/', methods=['GET'])
 def get_file(file_name=None):
     # query = {}
-    print("ln 28 filename:", file_name)
-    file_name = file_name
-    return controllers.get_file(file_name)
+    # print("ln 28 filename:", file_name)
+    # file_name = file_name
+    # IDEA: Use allowed_file() to ensure the filename is appropriate. 
+    if allowed_file(file_name):
+        return controllers.get_file(file_name) 
+    else:
+        return jsonify({"error": "invalid filename"})
+    # return controllers.get_file(file_name)
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -65,5 +69,22 @@ def save_file(file_name=None):
     # with open(storage_root + filename) as savefile:
     # savefile.write(filedata)
 
+    # IDEA: Use allowed_file() to ensure the filename is appropriate. 
     return jsonify(controllers.save_file(list(request.files.values())[0]))
     # return jsonify({"response":"Not Implemented"})
+
+@files.route('/<uuid>/', methods=['POST'])
+def save_file_uuid(uuid):
+    # Return the result of calling the controller to save a file inside a folder with the 
+    # supplied RESTful UUID value.
+    return jsonify(controllers.save_file_uuid(list(request.files.values())[0], uuid))
+
+@files.route('/<uuid>/<file_name>/', methods=['GET'])
+def get_file_uuid(uuid, file_name=None):
+    # Check if the supplied file_name conforms to basic expectations of a media file. 
+    print(f"in get file by uui, ln86: ", uuid)
+    if allowed_file(file_name):
+        return controllers.get_file_uuid(uuid, file_name)
+    else: 
+        return jsonify({"error": "invalid filename"})
+    # pass 
