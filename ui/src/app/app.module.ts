@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Injector, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppProviders } from './providers';
@@ -9,6 +9,8 @@ import { OutputAboutComponent } from './components/output-about/output-about.com
 import { OutputContactComponent } from './components/output-contact/output-contact.component';
 import { ConfirmPurchaseComponent } from './components/confirm-purchase/confirm-purchase.component';
 
+import { createCustomElement } from '@angular/elements';
+
 @NgModule({
   declarations: [ AppDeclarations, OutputAboutComponent, OutputContactComponent, ConfirmPurchaseComponent ],
   imports: [ AppRoutingModule, AppImports ],
@@ -16,4 +18,10 @@ import { ConfirmPurchaseComponent } from './components/confirm-purchase/confirm-
   bootstrap: [ AppComponent ]
 })
 
-export class AppModule { }
+export class AppModule {
+  constructor(private injector: Injector) {
+    const el = createCustomElement(OutputAboutComponent, { injector });
+    customElements.define('rn-about', el);
+  }
+  ngDoBootstrap() {}
+}

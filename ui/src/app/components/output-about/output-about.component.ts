@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { UserService } from 'src/app/services/user.service';
 
@@ -22,6 +22,14 @@ export class OutputAboutComponent implements OnInit {
   landingExists: boolean;
   aboutExists: boolean;
   contactExists: boolean;
+
+  // Web Component
+  @Input()
+  get message(): string { return this._message; }
+  set message(message: string) {
+    this._message = message;
+  }
+  private _message = '';
 
   constructor(
     private userService: UserService,
